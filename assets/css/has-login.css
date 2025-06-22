@@ -1,0 +1,13 @@
+:root {
+    --height-adminbar: 46px;
+}
+
+@media (width > 783px) {
+    :root {
+        --height-adminbar: 32px;
+    }
+}
+
+body:has(#wpadminbar) {
+    min-height: calc(100dvh - var(--height-adminbar));
+}

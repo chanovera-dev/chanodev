@@ -62,7 +62,7 @@ function get_asset_version( string $file_path ): int {
  * Load global CSS styles into the site header.
  */
 function load_on_header() {
-    wp_enqueue_style( 'main-styles', get_template_directory_uri() . 'style.css', [], get_asset_version( '/style.css' ), 'all' );
+    wp_enqueue_style( 'main-styles', get_template_directory_uri() . '/style.css', [], get_asset_version( '/style.css' ), 'all' );
 }
 add_action( 'wp_enqueue_scripts', 'load_on_header' );
 
@@ -70,9 +70,9 @@ add_action( 'wp_enqueue_scripts', 'load_on_header' );
  * Enqueue JavaScript and CSS assets for the theme footer.
  */
 function load_on_footer() {
-    wp_enqueue_script('global', "assets/js/global.js", [], get_asset_version('/assets/js/global.js'), true);
+    wp_enqueue_script('global', get_template_directory_uri() . '/assets/js/global.js', [], get_asset_version('/assets/js/global.js'), true);
     if (is_user_logged_in()) {
-        wp_enqueue_style('has-login', "assets/css/has-login.css", [], get_asset_version('/assets/css/has-login.css'), 'all');
+        wp_enqueue_style( 'has-login', get_template_directory_uri() . '/assets/css/has-login.css', [], get_asset_version('/assets/css/has-login.css'), 'all' );
     }   
 }
 add_action( 'wp_footer', 'load_on_footer' );

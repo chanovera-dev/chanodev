@@ -7,7 +7,7 @@ get_header(); ?>
 <main id="main" class="site-main" role="main">
     <header class="block">
         <div class="content">
-            <h1 class="page-title"><?php esc_html__( 'Página Home', 'chanodev' ); ?></h1>
+            <h1 class="page-title"><?php echo esc_html__( 'Página Home', 'chanodev' ); ?></h1>
         </div>
     </header>
     <section class="block">
@@ -17,7 +17,7 @@ get_header(); ?>
                     <?php
                         if ( have_posts() ) :
                             while ( have_posts() ) : the_post();
-                                get_template_part( 'template-parts/content', 'single' );    
+                                get_template_part( 'template-parts/content', 'archive' );    
                         endwhile; 
                         else :
                             echo 'No se han encontrado artículos.';
