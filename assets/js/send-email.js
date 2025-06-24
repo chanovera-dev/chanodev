@@ -24,3 +24,11 @@ function showForm() {
     form.classList.remove('sent'),
     form.setAttribute('data-status', 'init')
 }
+
+if (showFormElement) {
+    showFormElement.addEventListener('click', function () {
+    if (showFormElement.classList.contains('show')) {
+        showForm();
+    }
+    });
+}
