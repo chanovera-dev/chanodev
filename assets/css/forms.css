@@ -119,5 +119,6 @@ textarea {
 }
 
 .wpcf7 form.spam .wpcf7-response-output {
+    margin-top: 24px;
     color: #f56e28;
 }

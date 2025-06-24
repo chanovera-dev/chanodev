@@ -1,5 +1,6 @@
-const form = document.querySelector('.wpcf7-form');
-const showFormElement = document.getElementById('show-form');
+const form = document.querySelector('.wpcf7-form')
+const showFormElement = document.getElementById('show-form')
+const response = document.querySelector('.wpcf7-response-output')
 
 function checkClassAndChangeStyles() {
     const titleElement = document.getElementById('title--get-in-touch');
@@ -31,8 +32,11 @@ function showForm() {
 
 if (showFormElement) {
     showFormElement.addEventListener('click', function () {
-    if (showFormElement.classList.contains('show')) {
-        showForm();
-    }
+        if (showFormElement.classList.contains('show')) {
+            showForm();
+            if (response) {
+                response.innerHTML = '';
+            }
+        }
     });
 }
