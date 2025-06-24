@@ -4,7 +4,7 @@
  */
 
 function remove_wp_block_classes_on_specific_pages($block_content, $block) {
-    if (!is_page(['frontpage', 7])) {
+    if (!is_page(['home', 7])) {
         return $block_content;
     }
 
