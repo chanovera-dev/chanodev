@@ -20,12 +20,12 @@
 
                 & h3#title--get-in-touch {
                     margin-bottom: 24px;
-                    opacity: 0;
+                    opacity: 1;
                     transition: opacity .3s ease-in-out;
                 }
 
                 & h3#title--get-in-touch.hide {
-                    opacity: 1;
+                    opacity: 0;
                 }
 
                 & .wpcf7-form {
@@ -48,7 +48,7 @@
                     color: var(--wp--preset--color--contrast);
                     border: 2px solid var(--wp--preset--color--contrast);
                     position: absolute;
-                    bottom: -4px;
+                    bottom: 20px;
                     right: 20px;
                     opacity: 0;
                     transition: opacity .3s ease-in-out;
