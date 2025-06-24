@@ -21,7 +21,7 @@
 /* Activa opacidad y animación de pulso */
 .background-light.active::before {
   opacity: 1;
-  animation: pulse-light 1.4s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+  animation: pulse-light .5s cubic-bezier(0.4, 0, 0.2, 1) infinite;
 }
 
 /* Pulso suave con escala y opacidad */
