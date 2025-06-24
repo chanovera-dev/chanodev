@@ -58,3 +58,23 @@ function attachments_icons() {
     <?php
 }
 add_action('wp_head', 'attachments_icons');
+
+/**
+ * Meta description
+ */
+function get_dynamic_meta_description() {
+    if ( is_singular() ) {
+        global $post;
+
+        if ( has_excerpt( $post->ID ) ) {
+            return get_the_excerpt( $post->ID );
+        }
+
+        $custom_meta = get_post_meta( $post->ID, 'meta_description', true );
+        if ( $custom_meta ) {
+            return $custom_meta;
+        }
+    }
+
+    return get_bloginfo( 'description' );
+}
