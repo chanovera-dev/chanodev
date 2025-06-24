@@ -115,10 +115,15 @@ textarea {
     margin: 0;
     padding: 0;
     font-size: var(--wp--preset--font-size--medium);
-    /* border: none; */
+    margin-top: 24px;
+    border: none !important;
 }
 
 .wpcf7 form.spam .wpcf7-response-output {
-    margin-top: 24px;
     color: #f56e28;
+}
+
+.wpcf7 form.failed .wpcf7-response-output, 
+.wpcf7 form.aborted .wpcf7-response-output {
+    color: #dc3232;
 }
