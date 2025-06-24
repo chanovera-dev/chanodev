@@ -55,7 +55,7 @@
                 }
 
                 & h3#show-form.show {
-                    opacity: 0;
+                    opacity: 1;
                 }
             }
 
