@@ -1,10 +1,12 @@
 const form = document.querySelector('.wpcf7-form');
+const showFormElement = document.getElementById('show-form');
+
 function checkClassAndChangeStyles() {
-    const titleElement = document.getElementById('title--get-in-touch')
-      , showFormElement = document.getElementById('show-form');
+    const titleElement = document.getElementById('title--get-in-touch');
     form.classList.contains('submitting') | form.classList.contains('resetting') ? titleElement.classList.remove('hide') : form.classList.contains('sent') && (titleElement.classList.add('hide'),
     showFormElement.classList.add('show'))
 }
+
 const observerContact = new MutationObserver(mutations => {
     mutations.forEach(mutation => {
         mutation.type === 'attributes' && mutation.attributeName === 'class' && checkClassAndChangeStyles()
@@ -12,9 +14,11 @@ const observerContact = new MutationObserver(mutations => {
     )
 }
 );
+
 form && observerContact.observe(form, {
     attributes: true
 });
+
 checkClassAndChangeStyles();
 function showForm() {
     const titleElement = document.getElementById('title--get-in-touch')
