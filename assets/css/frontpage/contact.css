@@ -52,10 +52,12 @@
                     right: 20px;
                     opacity: 0;
                     transition: opacity .3s ease-in-out;
+                    cursor: none;
                 }
 
                 & h3#show-form.show {
                     opacity: 1;
+                    cursor: pointer;
                 }
             }
 
