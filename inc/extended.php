@@ -3,6 +3,9 @@
  * 
  */
 
+/**
+ * Remove someone class of wp blocks
+ */
 function remove_wp_block_classes_on_specific_pages($block_content, $block) {
     if (!is_page(['home', 7])) {
         return $block_content;
@@ -78,3 +81,38 @@ function get_dynamic_meta_description() {
 
     return get_bloginfo( 'description' );
 }
+
+/**
+ * Support for svg files
+ */
+function mime_types($mimes) {
+    $mimes['svg'] = 'image/svg+xml';
+    return $mimes;
+}
+add_filter( 'upload_mimes', 'mime_types' );
+
+/**
+ * Shortcode for skills on frontpage
+ */
+function mostrar_skills_repeater_shortcode() {
+    ob_start();
+    global $post;
+    if ( have_rows( 'skills_repeater', $post->ID ) ) :
+        while ( have_rows( 'skills_repeater', $post->ID ) ) : the_row();
+            echo '<div class="skill-card">';
+            if ( $icon_id = get_sub_field( 'skill_icon' ) ) {
+                $icon_path = get_attached_file( $icon_id );
+                if ( file_exists( $icon_path ) ) {
+                    $svg = trim( file_get_contents( $icon_path ) );
+                    echo $svg;
+                }
+            }
+            if ( $text = get_sub_field( 'skill_label' ) ) {
+                echo '<p>' . esc_html( $text ) . '</p>';
+            }
+            echo '</div>';
+        endwhile;
+    endif;
+    return ob_get_clean();
+}
+add_shortcode( 'skills_list', 'mostrar_skills_repeater_shortcode' );

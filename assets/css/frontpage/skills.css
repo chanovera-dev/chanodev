@@ -5,28 +5,24 @@
 
     & .content {
         padding: 20px 0;
-        
-        & ul {
-            width: 100%;
-            padding-left: 0;
-            list-style: none;
-            display: inline-flex;
-            flex-wrap: wrap;
-            gap: 20px;
-            justify-content: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 20px;
 
-            & li {
-                letter-spacing: 1px;
-                display: flex;
-                align-items: center;
-                gap: 7px;
-                max-height: 28px;
-                transition: color .3s ease-in-out;
-            }
+        & .skill-card,
+        & p {
+            display: flex;
+            align-items: center;
+            gap: 7px;
+            max-height: 28px;
+            overflow: hidden;
+            transition: color .3s ease-in-out;
+        }
 
-            & li:hover {
-                color: var(--wp--preset--color--white);
-            }
+        & .skill-card:hover,
+        & p:hover {
+            color: var(--wp--preset--color--white);
         }
     }
 }
