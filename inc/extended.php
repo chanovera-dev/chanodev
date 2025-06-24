@@ -37,7 +37,6 @@ function attachments_icons() {
     ?>
         <style>          
             a[href*="tel"]:before {mask-image: url('<?= get_stylesheet_directory_uri(); ?>/assets/icons/tel.svg');}
-            .whatsapp-button:has(a[href*="api.whatsapp"]):before,
             
             :is(#contact,.contact) .menu li a[href*="schedule"]:before {mask-image: url('<?= get_stylesheet_directory_uri(); ?>/assets/icons/schedule.svg');}
             :is(#contact,.contact) .menu li a[href*="address"]:before {mask-image: url('<?= get_stylesheet_directory_uri(); ?>/assets/icons/address.svg');}
@@ -51,6 +50,7 @@ function attachments_icons() {
             .social .menu li a[href*="telegram"]:before {mask-image: url('<?= get_stylesheet_directory_uri(); ?>/assets/icons/telegram.svg');}
 
             /* contact list */
+            .whatsapp-button:has(a[href*="api.whatsapp"]):before,
             #contact .content .is-layout-flex ul li a[href*="api.whatsapp"]:before {mask-image: url('<?= get_stylesheet_directory_uri(); ?>/assets/icons/whatsapp.svg');}
             #contact .content .is-layout-flex ul li a[href*="mailto"]:before {mask-image: url('<?= get_stylesheet_directory_uri(); ?>/assets/icons/mailto.svg');}
             #contact .content .is-layout-flex ul li.address:before {mask-image: url('<?= get_stylesheet_directory_uri(); ?>/assets/icons/address.svg');}
