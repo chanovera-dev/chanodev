@@ -108,3 +108,16 @@ textarea {
     background-position-x: -150%;
     transition: all 1s;
 }
+
+/* messages */
+
+.wpcf7 form .wpcf7-response-output {
+    margin: 0;
+    padding: 0;
+    font-size: var(--wp--preset--font-size--medium);
+    /* border: none; */
+}
+
+.wpcf7 form.spam .wpcf7-response-output {
+    color: #f56e28;
+}
