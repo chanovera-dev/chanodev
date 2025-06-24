@@ -23,7 +23,9 @@ $chanodev = (object) [
 
 // Core files to include
 $core_files = [
-    'core' => $inc_dir . '/core.php',
+    'core'      => $inc_dir . '/core.php',
+    'templates' => $inc_dir . '/templates.php',
+    'extended'  => $inc_dir . '/extended.php',
 ];
 
 // Include each file if it exists

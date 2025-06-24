@@ -9,14 +9,54 @@
 			"defaultPalette": false,
 			"palette": [
 				{
-					"color": "#FFFFFF",
+					"color": "#0C0E12",
 					"name": "Base",
 					"slug": "base"
 				},
 				{
-					"color": "#111111",
+					"color": "#11151a",
+					"name": "Background Hero",
+					"slug": "bg-hero"
+				},
+				{
+					"color": "#3fb950",
+					"name": "Green",
+					"slug": "green"
+				},
+				{
+					"color": "#9198a1",
 					"name": "Contrast",
 					"slug": "contrast"
+				},
+				{
+					"color": "#d1d1d1",
+					"name": "Color Available Text",
+					"slug": "at"
+				},
+				{
+					"color": "#26303b",
+					"name": "Background Color Available Text",
+					"slug": "bat"
+				},
+				{
+					"color": "#26303b",
+					"name": "Background Input",
+					"slug": "bg-input"
+				},
+				{
+					"color": "#2e3a47",
+					"name": "Border Input",
+					"slug": "br-input"
+				},
+				{
+					"color": "#3d4d5f",
+					"name": "border Input Hover",
+					"slug": "br-input-hover"
+				},
+				{
+					"color": "#4c6177",
+					"name": "border Input Focus",
+					"slug": "br-input-focus"
 				},
 				{
 					"color": "#FFEE58",
@@ -676,6 +716,9 @@
 			"link": {
 				"color": {
 					"text": "currentColor"
+				},
+				"typography": {
+					"textDecoration": "none"
 				},
 				":hover": {
 					"typography": {

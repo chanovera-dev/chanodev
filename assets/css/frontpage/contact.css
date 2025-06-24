@@ -1,0 +1,127 @@
+#contact {
+
+    & .content {
+
+        width: min(100%, 1096px);
+
+        & .is-layout-flex {
+            align-items: start;
+            gap: 0;
+            background-color: #11151a;
+            width: fit-content;
+            margin-inline: auto;
+            overflow: hidden;
+
+            & .form-wrapper {
+                background-color: #1a2129;
+                padding: 20px;
+                border-radius: 0;
+                min-height: 184px;
+
+                & h3#title--get-in-touch {
+                    margin-bottom: 24px;
+                    opacity: 1;
+                    transition: opacity .3s ease-in-out;
+                }
+
+                & h3#title--get-in-touch.hide {
+                    opacity: 0;
+                }
+
+                & .wpcf7-form {
+                    max-height: 1000px;
+                    max-width: 413px;
+                    overflow: hidden;
+                    padding: 0 5px;
+                    transition: max-height 1s ease-in-out;
+                }
+
+                & .wpcf7-form.hide {
+                    max-height: 0;
+                }
+
+                & h3#show-form {
+                    padding: 10px 16px;
+                    border-radius: 6px;
+                    font-size: var(--wp--preset--font-size--medium);
+                    font-weight: 600;
+                    color: var(--wp--preset--color--contrast);
+                    border: 2px solid var(--wp--preset--color--contrast);
+                    position: absolute;
+                    bottom: -4px;
+                    right: 20px;
+                    opacity: 0;
+                    transition: opacity .3s ease-in-out;
+                }
+
+                & h3#show-form.show {
+                    opacity: 0;
+                }
+            }
+
+            & ul {
+                padding: 20px;
+                list-style: none;
+                font-size: var(--wp--preset--font-size--medium);
+
+                & li {
+                    line-height: 2;
+
+                    & a {
+                        display: inline-block;
+                        position: relative;
+                        transition: color .3s ease-in-out;
+                    }
+
+                    & a:before {
+                        position: relative;
+                        content: '';
+                        display: inline-block;
+                        width: 16px;
+                        height: 16px;
+                        background-color: var(--wp--preset--color--contrast);
+                        mask-repeat: no-repeat;
+                        mask-position: center;
+                        mask-size: contain;
+                        margin-right: 7px;
+                        top: 2px;
+                    }
+
+                    & a:hover {
+                        color: var(--wp--preset--color--white);
+                    }
+                }
+
+                & li.address {
+                    display: inline-block;
+                    position: relative;
+                } 
+
+                & li.address:before {
+                    position: relative;
+                    content: '';
+                    display: inline-block;
+                    width: 16px;
+                    height: 16px;
+                    background-color: var(--wp--preset--color--contrast);
+                    mask-repeat: no-repeat;
+                    mask-position: center;
+                    mask-size: contain;
+                    margin-right: 7px;
+                    top: 2px;
+                }
+
+            }
+        }
+    }
+}
+
+@media (width >= 768px) {
+    #contact {
+        padding: 120px 0;
+
+        & .content .is-layout-flex {
+            border-radius: 10px;
+        }
+    }
+}

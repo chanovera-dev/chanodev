@@ -1,0 +1,26 @@
+#skills {
+    position: relative;
+    background-color: var(--wp--preset--color--bg-hero);
+    overflow: hidden;
+
+    .content {
+        padding: 20px 0;
+        ul {
+            width: 100%;
+            padding-left: 0;
+            list-style: none;
+            display: inline-flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+
+            li {
+                letter-spacing: 1px;
+                display: flex;
+                align-items: center;
+                gap: 7px;
+                max-height: 28px;
+            }
+        }
+    }
+}
