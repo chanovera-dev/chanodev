@@ -2,7 +2,7 @@ const form = document.querySelector('.wpcf7-form');
 function checkClassAndChangeStyles() {
     const titleElement = document.getElementById('title--get-in-touch')
       , showFormElement = document.getElementById('show-form');
-    form.classList.contains('submitting') | form.classList.contains('resetting') ? titleElement.classList.add('hide') : form.classList.contains('sent') && (titleElement.classList.add('hide'),
+    form.classList.contains('submitting') | form.classList.contains('resetting') ? titleElement.classList.remove('hide') : form.classList.contains('sent') && (titleElement.classList.add('hide'),
     showFormElement.classList.add('show'))
 }
 const observerContact = new MutationObserver(mutations => {
