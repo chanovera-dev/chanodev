@@ -44,7 +44,7 @@
                 border-radius: 6px;
                 width: 200px;
                 overflow: hidden;
-                display: grid;
+                display: none;
                 transition: transform 1s ease-in-out;
             }
 
@@ -170,5 +170,16 @@
     }
     100% {
         z-index: 1;
+    }
+}
+
+@media (min-width: 1024px) {
+    
+    #works.block:has(.content) .content .card-timeline .card-item {
+        padding-right: 200px;
+    }
+
+    #works.block:has(.content) .content .card-timeline .card-item figure {
+        display: grid;
     }
 }
