@@ -46,6 +46,14 @@
             font-size: 16px;
             background-color: var(--wp--preset--color--green);
             box-shadow: 0 0 15px var(--wp--preset--color--green);
-        } 
+        }
+
+        & .card-item:last-child {
+            padding-bottom: 0;
+        }
+
+        & .card-item:last-child:before {
+            height: calc(100% - 16px);
+        }
     }
 }
