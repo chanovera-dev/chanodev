@@ -20,24 +20,33 @@
 
                 & h3#title--get-in-touch {
                     margin-bottom: 24px;
-                    opacity: 1;
-                    transition: opacity .3s ease-in-out;
+                    max-height: 500px;
+                    overflow: hidden;
+                    transition: max-height .3s ease-in-out;
                 }
 
                 & h3#title--get-in-touch.hide {
-                    opacity: 0;
+                    max-height: 0;
                 }
 
                 & .wpcf7-form {
                     max-height: 1000px;
                     max-width: 413px;
-                    overflow: hidden;
-                    padding: 0 5px;
                     transition: max-height 1s ease-in-out;
                 }
 
                 & .wpcf7-form.sent {
+                    max-height: 300px;
+                }
+
+                & .wpcf7-form p {
+                    max-height: 500px;
+                    transition: max-height .3s ease-in-out;
+                }
+
+                & .wpcf7-form p.hide {
                     max-height: 0;
+                    overflow: hidden;
                 }
 
                 & h3#show-form {
