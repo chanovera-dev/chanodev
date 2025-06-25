@@ -45,6 +45,7 @@
                 width: 200px;
                 overflow: hidden;
                 display: none;
+                pointer-events: none;
                 transition: transform 1s ease-in-out;
             }
 
