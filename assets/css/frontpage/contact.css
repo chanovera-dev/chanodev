@@ -5,13 +5,14 @@
 
         width: min(100%, 1096px);
 
-        & .is-layout-flex {
+        > .is-layout-flex {
             align-items: start;
             gap: 0;
             background-color: #11151a;
             width: fit-content;
             margin-inline: auto;
             overflow: hidden;
+            border: 2px solid var(--wp--preset--color--bat);
 
             & .form-wrapper {
                 background-color: #1a2129;
