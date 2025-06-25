@@ -42,7 +42,7 @@
                 top: 50%;
                 transform: translateY(-50%) translateX(0) rotate(6deg) scale(1);
                 border-radius: 6px;
-                width: 200px;
+                width: 175px;
                 overflow: hidden;
                 display: none;
                 pointer-events: none;
@@ -101,19 +101,24 @@
             }
         }
 
-        .card-item.animate:last-child,
-        .card-item.animate-back:last-child {
-            & figure {
-                animation: none !important;
-            }
-        }
-
         .card-item.animate {
             animation: z-index-bounce 1s forwards ease-in-out;
         }
 
         .card-item.animate-back {
             animation: z-index-bounce-reverse 1s forwards ease-in-out;
+        }
+
+        .card-item.animate:last-child {
+            & figure {
+                animation: last-site-card-bounce 1s forwards ease-in-out !important;
+            }
+        }
+
+        .card-item.animate-back:last-child {
+            & figure {
+                animation: last-site-card-bounce-reverse 1s forwards ease-in-out !important;
+            }
         }
     }
 }
@@ -137,6 +142,7 @@
     }
 }
 
+
 @keyframes site-card-bounce-reverse {
     0% {
         transform: translateY(-50%) translateX(0) rotate(6deg) scale(1.1);
@@ -149,6 +155,30 @@
     }
 }
 
+
+@keyframes last-site-card-bounce {
+    0% {
+        transform: translateY(-50%) translateX(0) rotate(6deg) scale(1);
+    }
+    50% {
+        transform: translateY(-50%) translateX(100px) rotate(16deg) scale(1.05);
+    }
+    100% {
+        transform: translateY(-50%) translateX(0) rotate(6deg) scale(1.1);
+    }
+}
+
+@keyframes last-site-card-bounce-reverse {
+    0% {
+        transform: translateY(-50%) translateX(0) rotate(6deg) scale(1.1);
+    }
+    50% {
+        transform: translateY(-50%) translateX(100px) rotate(16deg) scale(1.05);
+    }
+    100% {
+        transform: translateY(-50%) translateX(0) rotate(6deg) scale(1);
+    }
+}
 
 @keyframes z-index-bounce {
     0% {
