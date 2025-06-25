@@ -40,7 +40,7 @@
                 position: absolute;
                 right: 0;
                 top: 50%;
-                transform: translateY(-50%) translateX(0) rotate(6deg);
+                transform: translateY(-50%) translateX(0) rotate(6deg) scale(1);
                 border-radius: 6px;
                 width: 200px;
                 overflow: hidden;
@@ -126,25 +126,25 @@
 
 @keyframes site-card-bounce {
     0% {
-        transform: translateY(-50%) translateX(0) rotate(6deg);
+        transform: translateY(-50%) translateX(0) rotate(6deg) scale(1);
     }
     50% {
-        transform: translateY(-50%) translateX(250px) rotate(16deg);
+        transform: translateY(-50%) translateX(250px) rotate(16deg) scale(1.05);
     }
     100% {
-        transform: translateY(-50%) translateX(0) rotate(6deg);
+        transform: translateY(-50%) translateX(0) rotate(6deg) scale(1.1);
     }
 }
 
 @keyframes site-card-bounce-reverse {
     0% {
-        transform: translateY(-50%) translateX(0) rotate(6deg);
+        transform: translateY(-50%) translateX(0) rotate(6deg) scale(1.1);
     }
     50% {
-        transform: translateY(-50%) translateX(-250px) rotate(-6deg);
+        transform: translateY(-50%) translateX(-250px) rotate(-6deg) scale(1.05);
     }
     100% {
-        transform: translateY(-50%) translateX(0) rotate(6deg);
+        transform: translateY(-50%) translateX(0) rotate(6deg) scale(1);
     }
 }
 
