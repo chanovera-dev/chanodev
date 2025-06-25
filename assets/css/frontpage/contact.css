@@ -29,6 +29,7 @@
                 & h3#title--get-in-touch.hide {
                     opacity: 0;
                     max-height: 0;
+                    margin-bottom: 0;
                 }
 
                 & .wpcf7-form {
