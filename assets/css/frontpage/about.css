@@ -6,10 +6,6 @@
         transform: translateX(-60px);
         transition: opacity 0.6s ease, transform 0.6s ease;
 
-        .title-section {
-            margin-bottom: 32px;
-        }
-
         .about__content {
             padding-left: 50px;
             position: relative;

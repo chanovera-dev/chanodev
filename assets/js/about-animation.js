@@ -1,14 +1,14 @@
 document.addEventListener('DOMContentLoaded', function () {
-  const target = document.querySelector('#about .content');
+  const targets = document.querySelectorAll('#about .content, #works .content');
 
-  if (!target) return;
+  if (!targets.length) return;
 
   const observer = new IntersectionObserver(
     (entries, observer) => {
       entries.forEach(entry => {
         if (entry.isIntersecting && entry.intersectionRatio >= 0.1) {
-          target.classList.add('animate-in');
-          observer.unobserve(target);
+          entry.target.classList.add('animate-in');
+          observer.unobserve(entry.target);
         }
       });
     },
@@ -17,5 +17,5 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   );
 
-  observer.observe(target);
+  targets.forEach(target => observer.observe(target));
 });
