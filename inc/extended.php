@@ -99,7 +99,8 @@ function mostrar_skills_repeater_shortcode() {
     global $post;
     if ( have_rows( 'skills_repeater', $post->ID ) ) :
         while ( have_rows( 'skills_repeater', $post->ID ) ) : the_row();
-            echo '<div class="skill-card">';
+            $class = get_sub_field( 'skill_class' );
+            echo '<div class="skill-card ' . $class . '">';
             if ( $icon_id = get_sub_field( 'skill_icon' ) ) {
                 $icon_path = get_attached_file( $icon_id );
                 if ( file_exists( $icon_path ) ) {

@@ -25,5 +25,10 @@
         & p:hover {
             color: var(--wp--preset--color--white);
         }
+
+        & .skill-card.woocommerce {
+            position: relative;
+            top: 3px;
+        }
     }
 }
