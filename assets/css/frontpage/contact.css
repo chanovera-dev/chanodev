@@ -22,10 +22,12 @@
                     margin-bottom: 24px;
                     max-height: 500px;
                     overflow: hidden;
-                    transition: max-height .3s ease-in-out;
+                    opacity: 1;
+                    transition: opacity .15s ease-in-out, max-height .3s ease-in-out;
                 }
 
                 & h3#title--get-in-touch.hide {
+                    opacity: 0;
                     max-height: 0;
                 }
 
@@ -41,10 +43,13 @@
 
                 & .wpcf7-form p {
                     max-height: 500px;
-                    transition: max-height .3s ease-in-out;
+                    opacity: 1;
+                    overflow: visible;
+                    transition: opacity .15s ease-in-out, max-height .3s ease-in-out;
                 }
 
                 & .wpcf7-form p.hide {
+                    opacity: 0;
                     max-height: 0;
                     overflow: hidden;
                 }
@@ -60,13 +65,22 @@
                     bottom: 20px;
                     right: 20px;
                     opacity: 0;
-                    transition: opacity .3s ease-in-out;
+                    max-height: 0;
+                    transition: opacity .3s ease-in-out, max-height .3s ease-in-out, color .3s ease-in-out;
                     cursor: none;
                 }
 
                 & h3#show-form.show {
-                    opacity: 1;
+                    opacity: .9;
+                    border-color: var(--wp--preset--color--contrast);
+                    max-height: 300px;
                     cursor: pointer;
+                }
+
+                & h3#show-form.show:hover {
+                    opacity: 1;
+                    border-color: var(--wp--preset--color--white);
+                    color: var(--wp--preset--color--white);
                 }
             }
 
