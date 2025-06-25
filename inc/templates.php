@@ -12,11 +12,10 @@ function frontpage_styles() {
         wp_enqueue_script( 'blur-typing', get_template_directory_uri() . '/assets/js/blur-typing.js', [], get_asset_version( '/assets/js/blur-typing.js' ), true );
         wp_enqueue_style( 'about-frontpage', get_template_directory_uri() . '/assets/css/frontpage/about.css', [], get_asset_version( '/assets/css/frontpage/about.css' ), 'all' );
         wp_enqueue_script( 'about-animation', get_template_directory_uri() . '/assets/js/about-animation.js', [], get_asset_version( '/assets/js/about-animation.js' ), true );
-        wp_enqueue_style( 'works-frontpage', get_template_directory_uri() . '/assets/css/frontpage/works.css', [], get_asset_version( '/assets/css/frontpage/works.css' ), 'all' );
-        wp_enqueue_script( 'works-animation', get_template_directory_uri() . '/assets/js/works-animation.js', [], get_asset_version( '/assets/js/works-animation.js' ), true );
         wp_enqueue_style( 'skills', get_template_directory_uri() . '/assets/css/frontpage/skills.css', [], get_asset_version( '/assets/css/frontpage/skills.css' ), 'all' );
-        wp_enqueue_script( 'send-email', get_template_directory_uri() . '/assets/js/send-email.js', [], get_asset_version( '/assets/js/send-email.js' ), true );
-
+        wp_enqueue_script( 'skills-animation', get_template_directory_uri() . '/assets/js/skills-animation.js', [], get_asset_version( '/assets/js/skills-animation.js' ), true );
+        wp_enqueue_style( 'works-frontpage', get_template_directory_uri() . '/assets/css/frontpage/works.css', [], get_asset_version( '/assets/css/frontpage/works.css' ), 'all' );
+        wp_enqueue_script( 'custom-contact', get_template_directory_uri() . '/assets/js/send-email.js', [], get_asset_version( '/assets/js/send-email.js' ), true );
         wp_enqueue_style( 'contact-frontpage', get_template_directory_uri() . '/assets/css/frontpage/contact.css', [], get_asset_version( '/assets/css/frontpage/contact.css' ), 'all' );
     }
 }
