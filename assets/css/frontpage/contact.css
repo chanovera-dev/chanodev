@@ -1,4 +1,5 @@
 #contact {
+    background-color: var(--wp--preset--color--bg-hero);
 
     & .content {
 

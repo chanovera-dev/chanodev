@@ -2,7 +2,6 @@
     padding: 120px 0;
     transform: translateX(120px);
     opacity: 0;
-    background-color: var(--wp--preset--color--bg-hero);
     transition: opacity 0.6s ease, transform 0.6s ease;
 
     & .card-timeline {
