@@ -4,20 +4,37 @@
  */
 
 function frontpage_styles() {
-    if ( is_front_page() or is_page_template( 'front-page.php' ) ) {
-        wp_dequeue_style( 'wp-block-library' );
-        wp_enqueue_style( 'background-light', get_template_directory_uri() . '/assets/css/frontpage.css', [], get_asset_version( '/assets/css/frontpage.css' ), 'all' );
-        wp_enqueue_script( 'light-animation', get_template_directory_uri() . '/assets/js/light-animation.js', [], get_asset_version( '/assets/js/light-animation.js' ), true );
-        wp_enqueue_style( 'hero', get_template_directory_uri() . '/assets/css/frontpage/hero.css', [], get_asset_version( '/assets/css/frontpage/hero.css' ), 'all' );
-        wp_enqueue_script( 'blur-typing', get_template_directory_uri() . '/assets/js/blur-typing.js', [], get_asset_version( '/assets/js/blur-typing.js' ), true );
-        wp_enqueue_style( 'about-frontpage', get_template_directory_uri() . '/assets/css/frontpage/about.css', [], get_asset_version( '/assets/css/frontpage/about.css' ), 'all' );
-        wp_enqueue_script( 'animate-in', get_template_directory_uri() . '/assets/js/animate-in.js', [], get_asset_version( '/assets/js/animate-in.js' ), true );
-        wp_enqueue_style( 'skills', get_template_directory_uri() . '/assets/css/frontpage/skills.css', [], get_asset_version( '/assets/css/frontpage/skills.css' ), 'all' );
-        wp_enqueue_script( 'skills-animation', get_template_directory_uri() . '/assets/js/skills-animation.js', [], get_asset_version( '/assets/js/skills-animation.js' ), true );
-        wp_enqueue_style( 'works-frontpage', get_template_directory_uri() . '/assets/css/frontpage/works.css', [], get_asset_version( '/assets/css/frontpage/works.css' ), 'all' );
-        wp_enqueue_script( 'works-animation', get_template_directory_uri() . '/assets/js/works-animation.js', [], get_asset_version( '/assets/js/works-animation.js' ), true );
-        wp_enqueue_script( 'custom-contact', get_template_directory_uri() . '/assets/js/send-email.js', [], get_asset_version( '/assets/js/send-email.js' ), true );
-        wp_enqueue_style( 'contact-frontpage', get_template_directory_uri() . '/assets/css/frontpage/contact.css', [], get_asset_version( '/assets/css/frontpage/contact.css' ), 'all' );
+    if ( is_front_page() || is_page_template( 'front-page.php' ) ) {
+
+        $base_uri = get_template_directory_uri();
+
+        $assets = [
+            'background-light'   => [ 'style', '/assets/css/frontpage.css' ],
+            'hero'               => [ 'style', '/assets/css/frontpage/hero.css' ],
+            'about-frontpage'    => [ 'style', '/assets/css/frontpage/about.css' ],
+            'skills'             => [ 'style', '/assets/css/frontpage/skills.css' ],
+            'works-frontpage'    => [ 'style', '/assets/css/frontpage/works.css' ],
+            'contact-frontpage'  => [ 'style', '/assets/css/frontpage/contact.css' ],
+            'light-animation'    => [ 'script', '/assets/js/light-animation.js', true ],
+            'blur-typing'        => [ 'script', '/assets/js/blur-typing.js', true ],
+            'animate-in'         => [ 'script', '/assets/js/animate-in.js', true ],
+            'skills-animation'   => [ 'script', '/assets/js/skills-animation.js', true ],
+            'works-animation'    => [ 'script', '/assets/js/works-animation.js', true ],
+            'custom-contact'     => [ 'script', '/assets/js/send-email.js', true ],
+        ];
+
+        foreach ( $assets as $handle => $asset ) {
+            $type = $asset[0];
+            $path = $asset[1];
+            $version = get_asset_version( $path );
+
+            if ( $type === 'style' ) {
+                wp_enqueue_style( $handle, $base_uri . $path, [], $version, 'all' );
+            } elseif ( $type === 'script' ) {
+                $in_footer = $asset[2] ?? true;
+                wp_enqueue_script( $handle, $base_uri . $path, [], $version, $in_footer );
+            }
+        }
     }
 }
 add_action( 'wp_enqueue_scripts', 'frontpage_styles' );
