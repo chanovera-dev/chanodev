@@ -11,7 +11,7 @@ function frontpage_styles() {
         wp_enqueue_style( 'hero', get_template_directory_uri() . '/assets/css/frontpage/hero.css', [], get_asset_version( '/assets/css/frontpage/hero.css' ), 'all' );
         wp_enqueue_script( 'blur-typing', get_template_directory_uri() . '/assets/js/blur-typing.js', [], get_asset_version( '/assets/js/blur-typing.js' ), true );
         wp_enqueue_style( 'about-frontpage', get_template_directory_uri() . '/assets/css/frontpage/about.css', [], get_asset_version( '/assets/css/frontpage/about.css' ), 'all' );
-        wp_enqueue_script( 'about-animation', get_template_directory_uri() . '/assets/js/about-animation.js', [], get_asset_version( '/assets/js/about-animation.js' ), true );
+        wp_enqueue_script( 'animate-in', get_template_directory_uri() . '/assets/js/animate-in.js', [], get_asset_version( '/assets/js/animate-in.js' ), true );
         wp_enqueue_style( 'skills', get_template_directory_uri() . '/assets/css/frontpage/skills.css', [], get_asset_version( '/assets/css/frontpage/skills.css' ), 'all' );
         wp_enqueue_script( 'skills-animation', get_template_directory_uri() . '/assets/js/skills-animation.js', [], get_asset_version( '/assets/js/skills-animation.js' ), true );
         wp_enqueue_style( 'works-frontpage', get_template_directory_uri() . '/assets/css/frontpage/works.css', [], get_asset_version( '/assets/css/frontpage/works.css' ), 'all' );
