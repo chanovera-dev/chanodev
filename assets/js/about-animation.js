@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', function () {
-  const targets = document.querySelectorAll('#about .content .title-section, #about .content .about__content p, #works .content .title-section, #works .content .card-timeline .card-item');
+  const targets = document.querySelectorAll('#about .content .title-section, #about .content .about__content p, #works .content .title-section, #works .content .card-timeline .card-item, #contact');
 
   if (!targets.length) return;
 
