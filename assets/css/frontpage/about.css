@@ -1,10 +1,13 @@
 #about {
     .content {
         padding: 120px 0;
-        color: var(--wp--preset--color--white);
-        opacity: 0;
-        transform: translateX(-60px);
-        transition: opacity 0.6s ease, transform 0.6s ease;
+        color: var(--wp--preset--color--white);  
+        
+        .title-section {
+            opacity: 0;
+            transform: translateX(-60px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
 
         .about__content {
             padding-left: 50px;
@@ -24,9 +27,16 @@
         .about__content > *:not(:last-child) {
             margin-bottom: 1lh;
         }
+
+        .about__content p {
+            opacity: 0;
+            transform: translateX(-60px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
     }
 
-    .content.animate-in {
+    .content .title-section.animate-in,
+    .content .about__content p.animate-in {
         opacity: 1;
         transform: translateX(0);
     }
