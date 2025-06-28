@@ -1,11 +1,13 @@
 :root {
     --size--button: 3.13rem;
     --display--responsive: grid;
+    --height--header: 90.08px;
 }
 
 @media (width >= 768px) {
     :root {
         --size--button: 2.38rem;
         --display--responsive: none;
+        --height--header: 78.08px;
     }
 }

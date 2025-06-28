@@ -1,5 +1,5 @@
 #hero {
-    height: 100svh;
+    height: calc(100svh - var(--height--header));
     background-color: var(--wp--preset--color--bg-hero);
     display: grid;
     align-items: center;
