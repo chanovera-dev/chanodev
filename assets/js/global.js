@@ -23,4 +23,37 @@ function scrollActions() {
 }
 scrollActions();
 
-function toggleMenuMobile() {}
+function toggleMenuMobile() {
+    const button = document.querySelector('#main-nav__button');
+    const menu = document.querySelector('#main-nav nav');
+
+    button.classList.toggle('active');
+    menu.classList.toggle('show');
+    body.style.overflow = body.style.overflow === 'hidden' ? 'auto' : 'hidden';
+}
+
+function toggleMainSearch() {
+    const searchform = document.querySelector('#custom-searchform');
+
+    if (window.innerWidth >= 768) {
+        const button = document.getElementById('main-search__button');
+        const nav = document.querySelector('#main-nav nav');
+        
+
+        nav.classList.toggle('hide');
+        button.classList.toggle('active');
+        searchform.classList.toggle('show');
+    } else {
+        searchform.classList.add('show');
+    }
+}
+
+function closeCustomSearchform() {
+    if (window.innerWidth < 768) {
+        const searchform = document.querySelector('#custom-searchform');
+
+        if (searchform.classList.contains('show')) {
+            searchform.classList.remove('show');
+        }
+    }
+}

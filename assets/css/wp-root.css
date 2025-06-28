@@ -1,0 +1,11 @@
+:root {
+    --size--button: 3.13rem;
+    --display--responsive: grid;
+}
+
+@media (width >= 768px) {
+    :root {
+        --size--button: 2.38rem;
+        --display--responsive: none;
+    }
+}

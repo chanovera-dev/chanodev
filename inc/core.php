@@ -13,7 +13,7 @@ function setup_chanodev() {
 
     // Register all theme navigation menus for different layout sections.
     register_nav_menus([
-        'primary'       => __( 'Bottom menu on desktop', 'chanodev' ),
+        'primary'       => __( 'Primary menu', 'chanodev' ),
         'contact'       => __( 'Contact menu', 'chanodev' ),
         'social'        => __( 'Social menu', 'chanodev' ),
     ]);
@@ -63,6 +63,7 @@ function get_asset_version( string $file_path ): int {
  */
 function load_on_header() {
     wp_enqueue_style( 'main-styles', get_template_directory_uri() . '/style.css', [], get_asset_version( '/style.css' ), 'all' );
+    wp_enqueue_style( 'wp-root', get_template_directory_uri() . '/assets/css/wp-root.css', [], get_asset_version( '/assets/css/wp-root.css' ), 'all' );
     wp_enqueue_style( 'custom-forms', get_template_directory_uri() . '/assets/css/forms.css', [], get_asset_version( '/assets/css/forms.css' ), 'all' );
 }
 add_action( 'wp_enqueue_scripts', 'load_on_header' );

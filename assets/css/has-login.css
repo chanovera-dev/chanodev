@@ -3,9 +3,14 @@
 }
 
 @media (width < 782px) {
-    #wpadminbar {
-        top: -46px;
+
+    body:has(#wpadminbar) {
+
+        #wpadminbar {
+            top: -46px;
+        }
     }
+    
 }
 
 @media (width > 783px) {
@@ -16,6 +21,16 @@
 
 body:has(#wpadminbar) {
     min-height: calc(100dvh - var(--height-adminbar));
+
+    #main-header {
+        top: var(--height-adminbar);
+    }
+
+    :is(.scroll-down,.scroll-up) {
+        & #main-header {
+            top: 0;
+        }
+    }
 }
 
 body:has(#wpadminbar) .site-main #hero {
