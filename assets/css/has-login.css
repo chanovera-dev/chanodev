@@ -34,5 +34,5 @@ body:has(#wpadminbar) {
 }
 
 body:has(#wpadminbar) .site-main #hero {
-    height: calc(100dvh - var(--height-adminbar));
+    height: calc(100svh - var(--height-adminbar) - var(--height--header));
 }
