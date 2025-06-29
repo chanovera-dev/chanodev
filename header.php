@@ -46,12 +46,13 @@
                     </div>
                 </form>
             </div>
-            <button id="main-search__button" onclick="toggleMainSearch()">
+            <button id="main-search__button" onclick="toggleMainSearch()" aria-label="Open search">
                 <div class="search-icon-circle"></div>
-                <span></span>
+                <span class="visually-hidden"></span>
             </button>
-            <button id="main-nav__button" onclick="toggleMenuMobile()">
+            <button id="main-nav__button" onclick="toggleMenuMobile()" aria-label="Open menu">
                 <div class="bar"></div>
+                <span class="visually-hidden"></span>
             </button>
         </div>
     </header>
