@@ -6,6 +6,11 @@
 function frontpage_styles() {
     if ( is_front_page() || is_page_template( 'front-page.php' ) ) {
 
+        function unload_parts_header() {
+            wp_dequeue_style( 'wp-block-library' );
+        }
+        add_action( 'wp_enqueue_scripts', 'unload_parts_header', 100 );
+
         $base_uri = get_template_directory_uri();
 
         $assets = [
