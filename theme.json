@@ -59,6 +59,11 @@
 					"slug": "br-input-focus"
 				},
 				{
+					"color": "#3a434e",
+					"name": "No Contrast",
+					"slug": "no-contrast"
+				},
+				{
 					"color": "#FFEE58",
 					"name": "Accent 1",
 					"slug": "accent-1"

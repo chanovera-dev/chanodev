@@ -14,7 +14,7 @@ function setup_chanodev() {
     // Register all theme navigation menus for different layout sections.
     register_nav_menus([
         'primary'       => __( 'Primary menu', 'chanodev' ),
-        'contact'       => __( 'Contact menu', 'chanodev' ),
+        'footer'       => __( 'Footer menu', 'chanodev' ),
         'social'        => __( 'Social menu', 'chanodev' ),
     ]);
 
@@ -22,7 +22,6 @@ function setup_chanodev() {
     add_theme_support( 'title-tag' );
     add_theme_support( 'automatic-feed-links' );
     add_theme_support( 'post-thumbnails', [ 'post', 'page' ] );
-    set_post_thumbnail_size( 350, 200, true );
     add_theme_support( 'customize-selective-refresh-widgets' );
     add_theme_support( 'wp-block-styles' );
     add_theme_support( 'align-wide' );
