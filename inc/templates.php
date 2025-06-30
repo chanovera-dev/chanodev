@@ -3,6 +3,9 @@
  * 
  */
 
+ /**
+ * Styles ans scripts for the Front Page
+ */
 function frontpage_styles() {
     if ( is_front_page() || is_page_template( 'front-page.php' ) ) {
 
@@ -43,3 +46,13 @@ function frontpage_styles() {
     }
 }
 add_action( 'wp_enqueue_scripts', 'frontpage_styles' );
+
+/**
+ * Styles for error 404 page
+ */
+function error404_templates() {
+    if ( is_404() ) {
+        wp_enqueue_style( 'error404-styles', get_template_directory_uri() . '/assets/css/error404.css', array(), get_asset_version('/assets/css/error404.css'), 'all' );
+    }
+}
+add_action( 'wp_enqueue_scripts', 'error404_templates' );

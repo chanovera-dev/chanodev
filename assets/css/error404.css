@@ -1,0 +1,59 @@
+:root {
+    --margin-bottom-content--error404: 40px; 
+    --padding-title--error404: 40px 0 32px;
+    --font-size-title--error404: 50px;
+    --line-height-title--error404: 54px;
+    --color-title--error404: #2a3135;
+}
+
+.site-main .block .content {
+    text-align: center;
+
+    & h1 {
+        padding: var(--padding-title--error404); 
+        font-size: var(--font-size-title--error404);
+        line-height: var(--line-height-title--error404);
+        color: var(--color-title--error404);
+    }
+
+    h2 {
+        margin-bottom: 30px;
+        font-size: 36px;
+    }
+
+    p {
+        font-size: var(--wp--preset--font-size--medium);
+    }
+
+    a {
+        margin-top: 20px;
+        display: inline-flex;
+    }
+
+    .search-form {
+        margin: 20px auto 30px;
+        display: flex;
+        flex-wrap: nowrap;
+        max-width: 480px;
+        gap: 10px;
+
+        label {
+            width:100%;
+        }
+    }
+}
+
+@media (min-width: 768px) {
+    :root {
+        --padding-title--error404:40px 0 20px;
+        --font-size-title--error404: 60px;
+        --line-height-title--error404: 1.5;
+    }
+}
+
+@media (min-width: 992px) {
+    :root {
+        --margin-bottom-content--error404: 70px;
+        --font-size-title--error404:80px;
+    }
+}
