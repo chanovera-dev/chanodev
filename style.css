@@ -100,7 +100,7 @@ img {
                     border: 1.5px solid var(--wp--preset--color--contrast);
                     background-color: transparent;
                     border-radius: 50%;
-                    transition: 0.5s ease all;
+                    transition: all .53 ease-in-out;
                 }
 
                 & span {
@@ -182,8 +182,8 @@ img {
                     top: 50%;
                     left: 50%;
                     transform: translate(-50%, -50%);
-                    width: 16px;
-                    height: 16px;
+                    width: 22px;
+                    height: 22px;
                     border: 1.5px solid var(--wp--preset--color--contrast);
                     border-radius: 50%;
                     transition: border-color .3s ease-in-out;
@@ -194,14 +194,14 @@ img {
                     top: 50%;
                     left: 50%;
                     transform: translate(-50%, -50%) rotate(45deg);
-                    width: 16px;
-                    height: 16px;
+                    width: 10px;
+                    height: 10px;
                 }
 
                 & span:before {
                     position: absolute;
                     content: '';
-                    width: 16px;
+                    width: 10px;
                     height: 1.5px;
                     top: 50%;
                     transform: translateY(-50%);
@@ -213,7 +213,7 @@ img {
                     position: absolute;
                     content: '';
                     width: 1.5px;
-                    height: 16px;
+                    height: 10px;
                     left: 50%;
                     transform: translateX(-50%);
                     background-color: var(--wp--preset--color--contrast);
@@ -243,18 +243,24 @@ img {
                 border-radius: 4px;
                 background-color: transparent;
                 margin-left: auto;
-                transition: border-color .3s ease-in-out;
+                transition: all .5s ease-in-out;
+                background-image: linear-gradient(-60deg, transparent, transparent 40%, #ffffff44 40%, #ffffff44 60%, transparent 60% 60%, transparent 100%);
+                background-size: 200% 100%;
+                background-position-x: 170%;
+                background-repeat: no-repeat;
 
                 & .search-icon-circle {
                     position: absolute;
                     top: 50%;
                     left: 50%;
                     transform: translate(-50%, -50%);
-                    width: 16px;
-                    height: 16px;
+                    width: 40px;
+                    max-width: 16px;
+                    height: 40px;
+                    max-height: 16px;
                     border: 1.5px solid var(--wp--preset--color--contrast);
                     border-radius: 50%;
-                    transition: border-color .3s ease-in-out;
+                    transition: border-color .3s ease-in-out, max-width .3s ease-in-out, max-height .3s ease-in-out;
                 }
 
                 & span {
@@ -290,29 +296,42 @@ img {
                 }
             }
 
-            & #main-search__button:hover {
-                border-color: #9198a140;
+        & #main-search__button:hover {
+            border-color: #9198a140;
 
-                & .search-icon-circle {
-                    border-color: var(--wp--preset--color--white);
-                }
-
-                & span:before,
-                & span:after {
-                    background-color: var(--wp--preset--color--white);
-                }
+            & .search-icon-circle {
+                border-color: var(--wp--preset--color--white);
             }
 
-            & #main-search__button.active {
-                & span:before {
-                    width: 16px;
-                    left: 0;
-                }
-
-                & span:after {
-                    height: 16px;
-                }
+            & span:before,
+            & span:after {
+                background-color: var(--wp--preset--color--white);
             }
+        }
+
+        & #main-search__button.active {
+            background-color: var(--wp--preset--color--br-input);
+            background-position-x: -150%;
+            transition: all 1s;
+
+            & .search-icon-circle {
+                max-width: 22px;
+                max-height: 22px;
+                border-color: var(--wp--preset--color--white);
+            }
+
+            & span:before {
+                width: 10px;
+                left: 3px;
+                background-color: var(--wp--preset--color--white);
+            }
+
+            & span:after {
+                height: 10px;
+                top: 3px;
+                background-color: var(--wp--preset--color--white);
+            }
+        }
 
         #main-nav__button {
             display: var(--display--responsive);
