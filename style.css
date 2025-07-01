@@ -100,7 +100,7 @@ img {
                     border: 1.5px solid var(--wp--preset--color--contrast);
                     background-color: transparent;
                     border-radius: 50%;
-                    transition: all .53 ease-in-out;
+                    transition: all .5s ease-in-out;
                 }
 
                 & span {
