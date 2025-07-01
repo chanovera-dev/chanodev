@@ -37,14 +37,12 @@ function toggleMainSearch() {
 
     if (window.innerWidth >= 768) {
         const button = document.getElementById('main-search__button');
-        const nav = document.querySelector('#main-nav nav');
+        const nav = document.querySelector('#main-nav');
         
-
-        nav.classList.toggle('hide');
         button.classList.toggle('active');
-        searchform.classList.toggle('show');
+        nav.classList.toggle('rotate');
     } else {
-        searchform.classList.add('show');
+        nav.classList.add('rotate');
     }
 }
 
