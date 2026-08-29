@@ -1,0 +1,154 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 768 432" fill="none" width="100%" height="100%">
+  <defs>
+    <linearGradient id="s3-glass" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.14"/>
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0.03"/>
+    </linearGradient>
+    <filter id="s3-shadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="10" stdDeviation="14" flood-color="#000000" flood-opacity="0.35"/>
+    </filter>
+    <clipPath id="s3-window-clip">
+      <rect x="54" y="44" width="660" height="344" rx="14"/>
+    </clipPath>
+  </defs>
+
+  <!-- Code Editor IDE Canvas -->
+  <g filter="url(#s3-shadow)">
+    <!-- Main Window Background -->
+    <rect x="54" y="44" width="660" height="344" rx="14" fill="var(--footer-background, #08101e)" fill-opacity="0.96"/>
+
+    <!-- All IDE Contents clipped inside window boundaries -->
+    <g clip-path="url(#s3-window-clip)">
+      <!-- File Explorer Sidebar Background -->
+      <rect x="54" y="82" width="140" height="306" fill="var(--footer-background, #050b14)" fill-opacity="0.8"/>
+      <line x1="194" y1="82" x2="194" y2="388" stroke="var(--color-primary, #0079ff)" stroke-opacity="0.2"/>
+
+      <!-- IDE Window Title Bar -->
+      <rect x="54" y="44" width="660" height="38" fill="url(#s3-glass)"/>
+      <circle cx="76" cy="63" r="5" fill="#ef4444"/>
+      <circle cx="92" cy="63" r="5" fill="#f59e0b"/>
+      <circle cx="108" cy="63" r="5" fill="#10b981"/>
+
+      <!-- Tabs -->
+      <g transform="translate(130, 48)">
+        <!-- Active Tab 1: Architecture.ts -->
+        <rect x="0" y="0" width="168" height="34" rx="6" fill="var(--footer-background, #08101e)" stroke="var(--color-primary, #0079ff)" stroke-width="1" stroke-opacity="0.4"/>
+        <path d="M18 11 L13 18 L17 18 L15 24 L21 16 L17 16 Z" fill="var(--color-primary, #38bdf8)"/>
+        <text x="26" y="21" font-family="monospace" font-size="11" font-weight="600" fill="var(--color-primary, #38bdf8)">Architecture.ts</text>
+        <circle cx="152" cy="17" r="3" fill="var(--color-primary, #0079ff)"/>
+
+        <!-- Tab 2: schema.sql -->
+        <rect x="174" y="0" width="105" height="34" rx="6" fill="var(--footer-background, #0b172a)" fill-opacity="0.5"/>
+        <text x="188" y="21" font-family="monospace" font-size="11" font-weight="500" fill="#64748b">schema.sql</text>
+
+        <!-- Tab 3: deploy.yml -->
+        <rect x="285" y="0" width="105" height="34" rx="6" fill="var(--footer-background, #0b172a)" fill-opacity="0.5"/>
+        <text x="299" y="21" font-family="monospace" font-size="11" font-weight="500" fill="#64748b">deploy.yml</text>
+      </g>
+
+      <!-- Sidebar Text Items -->
+      <text x="70" y="104" font-family="monospace" font-size="10" font-weight="700" fill="#64748b">EXPLORER</text>
+      <g transform="translate(70, 118)">
+        <text x="0" y="14" font-family="monospace" font-size="10" fill="#94a3b8">▼ src/</text>
+        <text x="12" y="32" font-family="monospace" font-size="10" fill="#94a3b8">▶ components/</text>
+        <text x="12" y="50" font-family="monospace" font-size="10" fill="#94a3b8">▶ core/</text>
+        <text x="12" y="68" font-family="monospace" font-size="10" fill="var(--color-primary, #38bdf8)">📄 Architecture.ts</text>
+        <text x="12" y="86" font-family="monospace" font-size="10" fill="#94a3b8">📄 pipeline.config</text>
+        <text x="12" y="104" font-family="monospace" font-size="10" fill="#10b981">📄 tests.spec.ts</text>
+      </g>
+
+      <!-- Code Area with Line Numbers -->
+      <g transform="translate(204, 96)">
+        <!-- Line Numbers -->
+        <text x="0" y="16" font-family="monospace" font-size="11" fill="#334155">01</text>
+        <text x="0" y="34" font-family="monospace" font-size="11" fill="#334155">02</text>
+        <text x="0" y="52" font-family="monospace" font-size="11" fill="#334155">03</text>
+        <text x="0" y="70" font-family="monospace" font-size="11" fill="#334155">04</text>
+        <text x="0" y="88" font-family="monospace" font-size="11" fill="#334155">05</text>
+        <text x="0" y="106" font-family="monospace" font-size="11" fill="#334155">06</text>
+        <text x="0" y="124" font-family="monospace" font-size="11" fill="#334155">07</text>
+        <text x="0" y="142" font-family="monospace" font-size="11" fill="#334155">08</text>
+
+        <!-- Code Syntax -->
+        <text x="24" y="16" font-family="monospace" font-size="11">
+          <tspan fill="var(--color-primary, #0079ff)" font-weight="bold">export interface </tspan>
+          <tspan fill="#f59e0b">EnterpriseStack </tspan>
+          <tspan fill="#ffffff">{</tspan>
+        </text>
+
+        <text x="38" y="34" font-family="monospace" font-size="11">
+          <tspan fill="#93c5fd">performance: </tspan>
+          <tspan fill="#10b981" font-weight="bold">'100/100 CoreWebVitals'</tspan>
+          <tspan fill="#ffffff">;</tspan>
+        </text>
+
+        <text x="38" y="52" font-family="monospace" font-size="11">
+          <tspan fill="#93c5fd">security: </tspan>
+          <tspan fill="#10b981">'Zero-Trust + CSP-Strict'</tspan>
+          <tspan fill="#ffffff">;</tspan>
+        </text>
+
+        <text x="38" y="70" font-family="monospace" font-size="11">
+          <tspan fill="#93c5fd">scalability: </tspan>
+          <tspan fill="#f59e0b">AutoScalingCluster</tspan>
+          <tspan fill="#ffffff">;</tspan>
+        </text>
+
+        <text x="24" y="88" font-family="monospace" font-size="11" fill="#ffffff">}</text>
+
+        <text x="24" y="110" font-family="monospace" font-size="11">
+          <tspan fill="var(--color-primary, #0079ff)" font-weight="bold">export const </tspan>
+          <tspan fill="var(--color-primary, #38bdf8)">deployProduction </tspan>
+          <tspan fill="#ffffff">= </tspan>
+          <tspan fill="var(--color-primary, #0079ff)">async </tspan>
+          <tspan fill="#ffffff">() =&gt; {</tspan>
+        </text>
+
+        <text x="38" y="128" font-family="monospace" font-size="11">
+          <tspan fill="var(--color-primary, #0079ff)">await </tspan>
+          <tspan fill="var(--color-primary, #38bdf8)">runAutomatedQA</tspan>
+          <tspan fill="#ffffff">({ coverage: </tspan>
+          <tspan fill="#10b981" font-weight="bold">'98.4%'</tspan>
+          <tspan fill="#ffffff"> });</tspan>
+        </text>
+
+        <text x="24" y="146" font-family="monospace" font-size="11" fill="#ffffff">};</text>
+      </g>
+
+      <!-- Terminal Output Panel at Bottom -->
+      <rect x="204" y="270" width="496" height="106" rx="8" fill="var(--footer-background, #040810)" stroke="var(--color-primary, #0079ff)" stroke-width="1" stroke-opacity="0.3"/>
+      <!-- Terminal Header -->
+      <rect x="204" y="270" width="496" height="24" rx="8" fill="var(--footer-background, #0c1a2e)"/>
+      <text x="218" y="286" font-family="monospace" font-size="10" font-weight="700" fill="var(--color-primary, #38bdf8)">TERMINAL · npm test &amp;&amp; npm run build</text>
+
+      <!-- Terminal Lines -->
+      <text x="218" y="310" font-family="monospace" font-size="10">
+        <tspan fill="#10b981" font-weight="bold">PASS </tspan>
+        <tspan fill="#e2e8f0">src/__tests__/performance.spec.ts (184ms)</tspan>
+      </text>
+      <text x="218" y="328" font-family="monospace" font-size="10">
+        <tspan fill="#10b981" font-weight="bold">PASS </tspan>
+        <tspan fill="#e2e8f0">src/__tests__/security-headers.spec.ts (92ms)</tspan>
+      </text>
+      <text x="218" y="348" font-family="monospace" font-size="10">
+        <tspan fill="#10b981">✓ 48 tests passed</tspan>
+        <tspan fill="#64748b"> | </tspan>
+        <tspan fill="var(--color-primary, #38bdf8)">⚡ Build bundle: 28.4kB gzip (0.8s)</tspan>
+        <tspan fill="#64748b"> | </tspan>
+        <tspan fill="#f59e0b">0 vulnerabilities</tspan>
+      </text>
+
+      <!-- Floating Build Success Badge -->
+      <g transform="translate(560, 110)">
+        <rect x="0" y="0" width="134" height="42" rx="8" fill="#10b981" fill-opacity="0.15" stroke="#10b981" stroke-width="1.5"/>
+        <circle cx="18" cy="21" r="8" fill="#10b981"/>
+        <path d="M14 21l3 3 6-6" stroke="#ffffff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        <text x="32" y="18" font-family="-apple-system, sans-serif" font-size="10" font-weight="800" fill="#10b981">STATUS: READY</text>
+        <text x="32" y="31" font-family="monospace" font-size="9" fill="#94a3b8">Production Safe</text>
+      </g>
+    </g>
+
+    <!-- Outer Window Border Overlay -->
+    <rect x="54" y="44" width="660" height="344" rx="14" fill="none" stroke="var(--color-primary, #0079ff)" stroke-width="1.5" stroke-opacity="0.4"/>
+  </g>
+</svg>

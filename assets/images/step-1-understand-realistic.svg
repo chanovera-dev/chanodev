@@ -1,0 +1,115 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 768 432" fill="none" width="100%" height="100%">
+  <defs>
+    <linearGradient id="s1-glow" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="var(--color-primary, #0079ff)" stop-opacity="0.3"/>
+      <stop offset="100%" stop-color="var(--color-primary, #0079ff)" stop-opacity="0.02"/>
+    </linearGradient>
+    <linearGradient id="s1-glass" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.12"/>
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0.03"/>
+    </linearGradient>
+    <linearGradient id="s1-blue-btn" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="var(--color-primary, #0079ff)"/>
+      <stop offset="100%" stop-color="var(--color-primary-hover, #0056b3)"/>
+    </linearGradient>
+    <filter id="s1-shadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="8" stdDeviation="12" flood-color="#000000" flood-opacity="0.25"/>
+    </filter>
+  </defs>
+
+  <!-- Left Card: Diagnostic & Objectives -->
+  <g filter="url(#s1-shadow)">
+    <rect x="54" y="50" width="280" height="332" rx="14" fill="var(--footer-background, #0c1e38)" fill-opacity="0.95" stroke="var(--color-primary, #0079ff)" stroke-width="1.5" stroke-opacity="0.4"/>
+    <!-- Card Header -->
+    <rect x="54" y="50" width="280" height="42" rx="14" fill="url(#s1-glass)"/>
+    <circle cx="78" cy="71" r="5" fill="var(--color-primary, #0079ff)"/>
+    <text x="94" y="75" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="12" font-weight="700" fill="#ffffff" letter-spacing="0.5">DIAGNÓSTICO &amp; METAS</text>
+    <rect x="264" y="63" width="56" height="18" rx="9" fill="var(--color-primary, #0079ff)" fill-opacity="0.2" stroke="var(--color-primary, #0079ff)" stroke-opacity="0.4"/>
+    <text x="292" y="75" font-family="monospace" font-size="9" font-weight="700" fill="var(--color-primary, #38bdf8)" text-anchor="middle">FASE 01</text>
+    
+    <!-- Checklist items -->
+    <rect x="74" y="108" width="240" height="36" rx="8" fill="var(--footer-background, #102a4e)" fill-opacity="0.8" stroke="var(--color-primary, #0079ff)" stroke-opacity="0.25"/>
+    <circle cx="92" cy="126" r="8" fill="#10b981" fill-opacity="0.2"/>
+    <path d="M88 126l3 3 6-6" stroke="#10b981" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="110" y="129" font-family="-apple-system, sans-serif" font-size="11" font-weight="600" fill="#e2e8f0">Entrevistas &amp; Stakeholders</text>
+
+    <rect x="74" y="154" width="240" height="36" rx="8" fill="var(--footer-background, #102a4e)" fill-opacity="0.8" stroke="var(--color-primary, #0079ff)" stroke-opacity="0.25"/>
+    <circle cx="92" cy="172" r="8" fill="#10b981" fill-opacity="0.2"/>
+    <path d="M88 172l3 3 6-6" stroke="#10b981" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="110" y="175" font-family="-apple-system, sans-serif" font-size="11" font-weight="600" fill="#e2e8f0">Auditoría UX &amp; Cuellos de Botella</text>
+
+    <rect x="74" y="200" width="240" height="36" rx="8" fill="var(--footer-background, #102a4e)" fill-opacity="0.8" stroke="var(--color-primary, #0079ff)" stroke-opacity="0.25"/>
+    <circle cx="92" cy="218" r="8" fill="var(--color-primary, #0079ff)" fill-opacity="0.2"/>
+    <path d="M88 218l3 3 6-6" stroke="var(--color-primary, #0079ff)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="110" y="221" font-family="-apple-system, sans-serif" font-size="11" font-weight="600" fill="#e2e8f0">Definición de KPIs de Éxito</text>
+
+    <!-- Mini chart box -->
+    <rect x="74" y="250" width="240" height="114" rx="8" fill="var(--footer-background, #081527)" stroke="var(--color-primary, #0079ff)" stroke-opacity="0.25"/>
+    <text x="88" y="272" font-family="-apple-system, sans-serif" font-size="10" font-weight="700" fill="#94a3b8">KPI IMPACT TARGET</text>
+    <path d="M88 335 C 130 330, 160 300, 200 290 C 240 280, 270 260, 295 255" fill="none" stroke="var(--color-primary, #0079ff)" stroke-width="2.5" stroke-linecap="round"/>
+    <circle cx="295" cy="255" r="4" fill="var(--color-primary, #0079ff)" stroke="#ffffff" stroke-width="1.5"/>
+    <text x="240" y="272" font-family="monospace" font-size="11" font-weight="800" fill="#10b981">+185% ROI</text>
+  </g>
+
+  <!-- Connectors -->
+  <path d="M334 216 L380 216" stroke="var(--color-primary, #0079ff)" stroke-width="2" stroke-dasharray="4 4"/>
+  <polygon points="384,216 376,211 376,221" fill="var(--color-primary, #0079ff)"/>
+
+  <!-- Right Card: Strategy Blueprint Canvas -->
+  <g filter="url(#s1-shadow)">
+    <rect x="384" y="50" width="330" height="332" rx="14" fill="var(--footer-background, #0c1e38)" fill-opacity="0.95" stroke="var(--color-primary, #0079ff)" stroke-width="1.5" stroke-opacity="0.4"/>
+    <!-- Card Header -->
+    <rect x="384" y="50" width="330" height="42" rx="14" fill="url(#s1-glass)"/>
+    <circle cx="408" cy="71" r="5" fill="var(--color-primary, #38bdf8)"/>
+    <text x="424" y="75" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="12" font-weight="700" fill="#ffffff" letter-spacing="0.5">MAPA ESTRATÉGICO</text>
+
+    <!-- Node Network -->
+    <g transform="translate(408, 108)">
+      <!-- Node A -->
+      <rect x="0" y="0" width="125" height="50" rx="8" fill="var(--footer-background, #102a4e)" stroke="var(--color-primary, #0079ff)" stroke-width="1.5"/>
+      <text x="14" y="22" font-family="-apple-system, sans-serif" font-size="10" font-weight="700" fill="var(--color-primary, #38bdf8)">USUARIO OBJETIVO</text>
+      <text x="14" y="38" font-family="-apple-system, sans-serif" font-size="9" fill="#94a3b8">B2B SaaS / Enterprise</text>
+
+      <!-- Node B -->
+      <rect x="155" y="0" width="125" height="50" rx="8" fill="var(--footer-background, #102a4e)" stroke="var(--color-primary, #0079ff)" stroke-width="1.5"/>
+      <text x="169" y="22" font-family="-apple-system, sans-serif" font-size="10" font-weight="700" fill="var(--color-primary, #38bdf8)">PROPUESTA VALOR</text>
+      <text x="169" y="38" font-family="-apple-system, sans-serif" font-size="9" fill="#94a3b8">Conversión sin fricción</text>
+
+      <!-- Connecting arrows -->
+      <path d="M125 25 L155 25" stroke="var(--color-primary, #0079ff)" stroke-width="1.5"/>
+      <path d="M62 50 L62 80 L140 80" stroke="var(--color-primary, #0079ff)" stroke-width="1.5"/>
+      <path d="M217 50 L217 80 L140 80" stroke="var(--color-primary, #0079ff)" stroke-width="1.5"/>
+
+      <!-- Node Central Outcome -->
+      <rect x="65" y="100" width="150" height="60" rx="10" fill="url(#s1-blue-btn)" stroke="#ffffff" stroke-width="1" stroke-opacity="0.3"/>
+      <text x="140" y="125" font-family="-apple-system, sans-serif" font-size="11" font-weight="800" fill="#ffffff" text-anchor="middle">ALCANCE Y ROADMAP</text>
+      <text x="140" y="142" font-family="monospace" font-size="9" font-weight="700" fill="#bfdbfe" text-anchor="middle">3 Sprints · 0 Deuda Técnica</text>
+
+      <!-- Requirements Pills with Vector SVG Icons -->
+      <g transform="translate(0, 180)">
+        <!-- Pill 1: Core Vitals with Lightning SVG icon -->
+        <rect x="0" y="0" width="88" height="24" rx="12" fill="var(--footer-background, #081527)" stroke="var(--color-primary, #0079ff)" stroke-opacity="0.3"/>
+        <g transform="translate(8, 6)">
+          <path d="M4.5 1 L1.5 6.5 L4.5 6.5 L3.5 11 L7.5 5 L4.5 5 Z" fill="var(--color-primary, #38bdf8)" stroke="var(--color-primary, #38bdf8)" stroke-width="0.5" stroke-linejoin="round"/>
+        </g>
+        <text x="50" y="15" font-family="monospace" font-size="8.5" font-weight="600" fill="var(--color-primary, #38bdf8)" text-anchor="middle">Core Vitals</text>
+
+        <!-- Pill 2: Seguridad with Shield/Lock SVG icon -->
+        <rect x="94" y="0" width="86" height="24" rx="12" fill="var(--footer-background, #081527)" stroke="var(--color-primary, #0079ff)" stroke-opacity="0.3"/>
+        <g transform="translate(102, 6)">
+          <rect x="1.5" y="4.5" width="8" height="6" rx="1.5" fill="var(--color-primary, #38bdf8)"/>
+          <path d="M3.5 4.5 V3 A2 2 0 0 1 7.5 3 V4.5" stroke="var(--color-primary, #38bdf8)" stroke-width="1.2" fill="none"/>
+        </g>
+        <text x="142" y="15" font-family="monospace" font-size="8.5" font-weight="600" fill="var(--color-primary, #38bdf8)" text-anchor="middle">Seguridad</text>
+
+        <!-- Pill 3: SEO Escalable with Growth Trend SVG icon -->
+        <rect x="186" y="0" width="94" height="24" rx="12" fill="var(--footer-background, #081527)" stroke="var(--color-primary, #0079ff)" stroke-opacity="0.3"/>
+        <g transform="translate(194, 6)">
+          <path d="M1 8.5 L4 5.5 L6.5 8 L10 3" stroke="var(--color-primary, #38bdf8)" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M7.5 3 H10 V5.5" stroke="var(--color-primary, #38bdf8)" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/>
+        </g>
+        <text x="240" y="15" font-family="monospace" font-size="8.5" font-weight="600" fill="var(--color-primary, #38bdf8)" text-anchor="middle">SEO Scalable</text>
+      </g>
+    </g>
+  </g>
+</svg>

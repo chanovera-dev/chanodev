@@ -1,0 +1,46 @@
+<?php
+/**
+ * The template for displaying the Front Page (Developer Portfolio Homepage)
+ *
+ * @package ChanoDev
+ */
+
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
+
+get_header();
+
+require locate_template( 'templates/front-page/fallbacks.php' );
+?>
+
+<main id="main" class="site-main" role="main">
+
+<?php
+    $directory = get_stylesheet_directory() . '/templates/front-page';
+
+    $sections = [
+        'hero',
+        'core-pillars',
+        'featured-projects',
+		'core-services',
+        'technical-stack',
+		'testimonials',
+        'cta'
+    ];
+
+    foreach ($sections as $section => $condition) {
+        if (is_int($section)) {
+            $section = $condition;
+            $condition = true;
+        }
+
+        if ($condition && file_exists("$directory/$section.php")) {
+            include "$directory/$section.php";
+        }
+    }
+?>
+</main>
+
+<?php
+get_footer();

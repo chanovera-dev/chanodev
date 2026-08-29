@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 240" fill="none" width="100%" height="100%">
+  <!-- Analytics dashboard -->
+  <rect x="55" y="42" width="290" height="156" rx="12" fill="#ffffff" stroke="#0079ff" stroke-width="1.5" stroke-opacity="0.5"/>
+  
+  <!-- Speed Score Ring -->
+  <circle cx="115" cy="120" r="42" stroke="#0079ff" stroke-opacity="0.1" stroke-width="8"/>
+  <circle cx="115" cy="120" r="42" stroke="#0079ff" stroke-width="8" stroke-dasharray="240 264" stroke-linecap="round" transform="rotate(-90 115 120)"/>
+  <text x="115" y="124" font-family="sans-serif" font-size="20" font-weight="900" fill="#0f172a" text-anchor="middle">100</text>
+  <text x="115" y="139" font-family="sans-serif" font-size="9" fill="#0079ff" font-weight="bold" text-anchor="middle">CWV SCORE</text>
+  
+  <!-- Growth chart -->
+  <path d="M190 152 L225 127 L260 137 L295 87 L325 72" fill="none" stroke="#0079ff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Area under curve -->
+  <path d="M190 152 L225 127 L260 137 L295 87 L325 72 L325 162 L190 162 Z" fill="#0079ff" fill-opacity="0.1"/>
+  
+  <circle cx="295" cy="87" r="5" fill="#ffffff" stroke="#0079ff" stroke-width="2"/>
+  <circle cx="325" cy="72" r="5" fill="#16a34a" stroke="#ffffff" stroke-width="2"/>
+  
+  <!-- Metric tags -->
+  <rect x="190" y="56" width="60" height="20" rx="6" fill="#0079ff" fill-opacity="0.1" stroke="#0079ff" stroke-opacity="0.3"/>
+  <text x="220" y="70" font-family="monospace" font-size="9.5" fill="#0079ff" font-weight="bold" text-anchor="middle">SEO: 100</text>
+  
+  <rect x="260" y="56" width="65" height="20" rx="6" fill="#16a34a" fill-opacity="0.1" stroke="#16a34a" stroke-opacity="0.3"/>
+  <text x="292" y="70" font-family="monospace" font-size="9.5" fill="#16a34a" font-weight="bold" text-anchor="middle">PERF: AA</text>
+</svg>

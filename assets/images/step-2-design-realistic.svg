@@ -1,0 +1,129 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 768 432" fill="none" width="100%" height="100%">
+  <defs>
+    <linearGradient id="s2-glass" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.14"/>
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0.03"/>
+    </linearGradient>
+    <linearGradient id="s2-hero-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="var(--color-primary, #0079ff)" stop-opacity="0.3"/>
+      <stop offset="100%" stop-color="var(--footer-background, #002b5e)" stop-opacity="0.6"/>
+    </linearGradient>
+    <filter id="s2-shadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="10" stdDeviation="14" flood-color="#000000" flood-opacity="0.3"/>
+    </filter>
+    <clipPath id="s2-window-clip">
+      <rect x="54" y="44" width="660" height="344" rx="14"/>
+    </clipPath>
+  </defs>
+
+  <!-- Figma / Studio Main Browser Canvas -->
+  <g filter="url(#s2-shadow)">
+    <!-- Window Outer Background -->
+    <rect x="54" y="44" width="660" height="344" rx="14" fill="var(--footer-background, #0b172a)" fill-opacity="0.95"/>
+    
+    <!-- All inner window contents clipped inside the rounded shell -->
+    <g clip-path="url(#s2-window-clip)">
+      <!-- Sidebar Background -->
+      <rect x="54" y="82" width="160" height="306" fill="var(--footer-background, #081220)" fill-opacity="0.8"/>
+      <line x1="214" y1="82" x2="214" y2="388" stroke="var(--color-primary, #0079ff)" stroke-opacity="0.2"/>
+
+      <!-- Window Top Header Bar -->
+      <rect x="54" y="44" width="660" height="38" fill="url(#s2-glass)"/>
+      <circle cx="76" cy="63" r="5" fill="#ef4444"/>
+      <circle cx="92" cy="63" r="5" fill="#f59e0b"/>
+      <circle cx="108" cy="63" r="5" fill="#10b981"/>
+      
+      <rect x="234" y="52" width="300" height="22" rx="6" fill="var(--footer-background, #060d17)" stroke="var(--color-primary, #0079ff)" stroke-opacity="0.3"/>
+      <text x="384" y="67" font-family="monospace" font-size="10" fill="#94a3b8" text-anchor="middle">design-system.chanodev.com/ui-spec</text>
+
+      <!-- Sidebar Content -->
+      <text x="74" y="106" font-family="-apple-system, sans-serif" font-size="10" font-weight="700" fill="var(--color-primary, #38bdf8)" letter-spacing="0.5">COMPONENTES</text>
+      
+      <!-- Tree items -->
+      <g transform="translate(74, 120)">
+        <rect x="0" y="0" width="124" height="24" rx="6" fill="var(--color-primary, #0079ff)" fill-opacity="0.2"/>
+        <text x="8" y="16" font-family="-apple-system, sans-serif" font-size="10" font-weight="600" fill="#ffffff">❖ Navigation Bar</text>
+        
+        <rect x="0" y="30" width="124" height="24" rx="6" fill="transparent"/>
+        <text x="8" y="46" font-family="-apple-system, sans-serif" font-size="10" font-weight="500" fill="#94a3b8">❖ Hero Section</text>
+        
+        <rect x="0" y="60" width="124" height="24" rx="6" fill="transparent"/>
+        <text x="8" y="76" font-family="-apple-system, sans-serif" font-size="10" font-weight="500" fill="#94a3b8">❖ Feature Cards</text>
+
+        <rect x="0" y="90" width="124" height="24" rx="6" fill="transparent"/>
+        <text x="8" y="106" font-family="-apple-system, sans-serif" font-size="10" font-weight="500" fill="#94a3b8">❖ Pricing Matrix</text>
+      </g>
+
+      <!-- Color Swatches & Specs -->
+      <text x="74" y="260" font-family="-apple-system, sans-serif" font-size="10" font-weight="700" fill="var(--color-primary, #38bdf8)" letter-spacing="0.5">DESIGN TOKENS</text>
+      <g transform="translate(74, 274)">
+        <circle cx="10" cy="10" r="8" fill="var(--color-primary, #0079ff)"/>
+        <text x="26" y="14" font-family="monospace" font-size="9" fill="#e2e8f0">Primary (CSS Var)</text>
+        
+        <circle cx="10" cy="32" r="8" fill="#10b981"/>
+        <text x="26" y="36" font-family="monospace" font-size="9" fill="#e2e8f0">Success #10B981</text>
+        
+        <circle cx="10" cy="54" r="8" fill="#f59e0b"/>
+        <text x="26" y="58" font-family="monospace" font-size="9" fill="#e2e8f0">Accent #F59E0B</text>
+      </g>
+
+      <!-- Main Artboard Layout -->
+      <g transform="translate(230, 96)">
+        <!-- Artboard Mockup -->
+        <rect x="0" y="0" width="468" height="276" rx="8" fill="var(--footer-background, #060e1b)" stroke="var(--color-primary, #0079ff)" stroke-width="1.5" stroke-opacity="0.3"/>
+        
+        <!-- App Header Nav -->
+        <rect x="0" y="0" width="468" height="34" rx="8" fill="var(--footer-background, #0f223d)"/>
+        <rect x="18" y="11" width="50" height="12" rx="4" fill="var(--color-primary, #0079ff)"/>
+        <rect x="80" y="14" width="36" height="6" rx="3" fill="#ffffff" fill-opacity="0.3"/>
+        <rect x="126" y="14" width="36" height="6" rx="3" fill="#ffffff" fill-opacity="0.3"/>
+        <rect x="172" y="14" width="36" height="6" rx="3" fill="#ffffff" fill-opacity="0.3"/>
+        <rect x="388" y="8" width="64" height="18" rx="9" fill="var(--color-primary, #0079ff)"/>
+        <text x="420" y="20" font-family="-apple-system, sans-serif" font-size="8" font-weight="700" fill="#ffffff" text-anchor="middle">CONTACT</text>
+
+        <!-- Hero Banner Block in Artboard -->
+        <rect x="18" y="46" width="432" height="96" rx="8" fill="url(#s2-hero-grad)" stroke="var(--color-primary, #0079ff)" stroke-opacity="0.4"/>
+        <rect x="36" y="64" width="160" height="14" rx="4" fill="#ffffff"/>
+        <rect x="36" y="86" width="220" height="8" rx="4" fill="#94a3b8"/>
+        <rect x="36" y="100" width="180" height="8" rx="4" fill="#94a3b8"/>
+        <rect x="36" y="118" width="80" height="16" rx="4" fill="var(--color-primary, #0079ff)"/>
+
+        <!-- Right Visual Widget in Hero -->
+        <rect x="290" y="58" width="144" height="72" rx="6" fill="var(--footer-background, #081830)" stroke="var(--color-primary, #0079ff)" stroke-opacity="0.4"/>
+        <circle cx="330" cy="94" r="18" fill="var(--color-primary, #0079ff)" fill-opacity="0.2"/>
+        <path d="M360 80 L395 105 L420 90" stroke="#10b981" stroke-width="2" fill="none"/>
+
+        <!-- 3 Feature Cards in Artboard -->
+        <g transform="translate(18, 154)">
+          <rect x="0" y="0" width="134" height="106" rx="6" fill="var(--footer-background, #0e2340)" stroke="var(--color-primary, #0079ff)" stroke-opacity="0.25"/>
+          <circle cx="22" cy="22" r="10" fill="var(--color-primary, #0079ff)" fill-opacity="0.3"/>
+          <rect x="14" y="44" width="70" height="8" rx="4" fill="#ffffff"/>
+          <rect x="14" y="60" width="106" height="6" rx="3" fill="#64748b"/>
+          <rect x="14" y="72" width="88" height="6" rx="3" fill="#64748b"/>
+
+          <rect x="149" y="0" width="134" height="106" rx="6" fill="var(--footer-background, #0e2340)" stroke="var(--color-primary, #0079ff)" stroke-opacity="0.25"/>
+          <circle cx="171" cy="22" r="10" fill="#10b981" fill-opacity="0.3"/>
+          <rect x="163" y="44" width="70" height="8" rx="4" fill="#ffffff"/>
+          <rect x="163" y="60" width="106" height="6" rx="3" fill="#64748b"/>
+          <rect x="163" y="72" width="88" height="6" rx="3" fill="#64748b"/>
+
+          <rect x="298" y="0" width="134" height="106" rx="6" fill="var(--footer-background, #0e2340)" stroke="var(--color-primary, #0079ff)" stroke-opacity="0.25"/>
+          <circle cx="320" cy="22" r="10" fill="#f59e0b" fill-opacity="0.3"/>
+          <rect x="312" y="44" width="70" height="8" rx="4" fill="#ffffff"/>
+          <rect x="312" y="60" width="106" height="6" rx="3" fill="#64748b"/>
+          <rect x="312" y="72" width="88" height="6" rx="3" fill="#64748b"/>
+        </g>
+      </g>
+
+      <!-- Figma Multi-User Cursor -->
+      <g transform="translate(480, 240)">
+        <path d="M 0,0 L 0,15.5 L 4.2,12 L 7.5,18.5 L 9.8,17.3 L 6.5,11 L 12,11 Z" fill="var(--color-primary, #0079ff)" stroke="#ffffff" stroke-width="1.2" stroke-linejoin="round"/>
+        <rect x="14" y="11" width="96" height="20" rx="5" fill="var(--color-primary, #0079ff)"/>
+        <text x="62" y="24.5" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="9" font-weight="700" fill="#ffffff" text-anchor="middle">Chano · Lead UI</text>
+      </g>
+    </g>
+
+    <!-- Outer Window Border Overlay -->
+    <rect x="54" y="44" width="660" height="344" rx="14" fill="none" stroke="var(--color-primary, #0079ff)" stroke-width="1.5" stroke-opacity="0.4"/>
+  </g>
+</svg>
