@@ -1207,4 +1207,41 @@ document.addEventListener("DOMContentLoaded", function () {
 
 	// Responsive adaptation
 	window.addEventListener("resize", renderCarousel);
+
+	// Interactive Demo Card Likes in Development / Showcase Mode
+	document.addEventListener("click", function (e) {
+		const btn = e.target.closest('.button__like[data-post-id^="demo-"]');
+		if (!btn) return;
+
+		e.preventDefault();
+		e.stopPropagation();
+
+		const container = btn.closest(".like-btn-container");
+		const isLiked = btn.classList.contains("liked");
+		const countSpan = btn.querySelector(".like-count");
+		let count = countSpan ? parseInt(countSpan.textContent, 10) : 18;
+		if (isNaN(count)) count = 18;
+
+		if (isLiked) {
+			btn.classList.remove("liked", "is-liked");
+			if (container) container.classList.remove("is-liked");
+			count = Math.max(0, count - 1);
+			if (countSpan) countSpan.textContent = count;
+			const svg = btn.querySelector("svg");
+			if (svg) {
+				svg.innerHTML = '<path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143q.09.083.176.171a3 3 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15"/>';
+			}
+		} else {
+			btn.classList.add("liked", "is-liked", "animating-like");
+			if (container) container.classList.add("is-liked");
+			count = count + 1;
+			if (countSpan) countSpan.textContent = count;
+			const svg = btn.querySelector("svg");
+			if (svg) {
+				svg.innerHTML = '<path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"/>';
+			}
+			setTimeout(() => btn.classList.remove("animating-like"), 450);
+		}
+	}, true);
 });
+

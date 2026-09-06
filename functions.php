@@ -63,6 +63,18 @@ function chanodev_enqueue_styles() {
 			true
 		);
 	}
+
+	// 4. Load dedicated add-project template stylesheet exclusively on that template
+	if ( is_page_template( 'templates/template-add-project.php' ) ) {
+		$add_proj_css_ver = file_exists( CHANODEV_DIR . '/assets/css/template-add-project.css' ) ? filemtime( CHANODEV_DIR . '/assets/css/template-add-project.css' ) : CHANODEV_VERSION;
+
+		wp_enqueue_style(
+			'chanodev-add-project-style',
+			CHANODEV_URI . '/assets/css/template-add-project.css',
+			array( 'chanodev-style', 'chanodev-portfolio-style' ),
+			$add_proj_css_ver
+		);
+	}
 }
 add_action( 'wp_enqueue_scripts', 'chanodev_enqueue_styles', 15 );
 
@@ -200,3 +212,20 @@ function chanodev_seo_meta_tags() {
 	}
 }
 add_action( 'wp_head', 'chanodev_seo_meta_tags', 1 );
+
+/**
+ * Enable Stories theme likes on 'project' CPT (Casos de estudio y proyectos).
+ *
+ * @param array $post_types Array of post types allowed for likes.
+ * @return array Modified array of post types.
+ */
+function chanodev_enable_project_likes( $post_types ) {
+	if ( ! is_array( $post_types ) ) {
+		$post_types = array( 'post' );
+	}
+	if ( ! in_array( 'project', $post_types, true ) ) {
+		$post_types[] = 'project';
+	}
+	return $post_types;
+}
+add_filter( 'stories_liked_post_types', 'chanodev_enable_project_likes' );

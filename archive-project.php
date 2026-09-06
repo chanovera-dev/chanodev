@@ -58,61 +58,88 @@ get_header();
 	<section class="block portfolio-grid-block">
 		<div class="content">
 			<?php if ( have_posts() ) : ?>
-				<div class="chanodev-projects-grid">
+				<div class="posts-grid chanodev-projects-grid">
 					<?php
 					while ( have_posts() ) :
 						the_post();
-						$details = function_exists( 'chanodev_get_project_details' ) ? chanodev_get_project_details( get_the_ID() ) : array();
+						$details   = function_exists( 'chanodev_get_project_details' ) ? chanodev_get_project_details( get_the_ID() ) : array();
+						$has_thumb = has_post_thumbnail();
+						$container_classes = 'stories-standard-container' . ( ! $has_thumb ? ' has-no-thumbnail' : '' );
 					?>
-						<article id="project-<?php the_ID(); ?>" <?php post_class( 'chanodev-project-card' ); ?>>
-							<div class="project-card-media">
-								<a href="<?php the_permalink(); ?>" class="project-card-thumbnail-link" tabindex="-1" aria-hidden="true">
-									<?php if ( has_post_thumbnail() ) : ?>
-										<?php the_post_thumbnail( 'large', array( 'class' => 'project-card-img', 'loading' => 'lazy' ) ); ?>
-									<?php else : ?>
-										<div class="project-card-placeholder"></div>
+						<article id="project-<?php the_ID(); ?>" <?php post_class( 'story-card format-standard-card chanodev-project-card' . ( ! $has_thumb ? ' has-no-thumbnail' : '' ) ); ?> data-id="<?php echo esc_attr( get_the_ID() ); ?>">
+							<div class="<?php echo esc_attr( $container_classes ); ?>">
+								<!-- Background / Pattern -->
+								<div class="post-thumbnail-bg <?php echo ! $has_thumb ? 'no-thumbnail-pattern' : ''; ?>">
+									<?php if ( $has_thumb ) : ?>
+										<?php the_post_thumbnail( 'large' ); ?>
 									<?php endif; ?>
-								</a>
-								<?php if ( ! empty( $details['types'] ) && ! is_wp_error( $details['types'] ) ) : ?>
-									<span class="project-type-badge">
-										<?php echo esc_html( $details['types'][0]->name ); ?>
-									</span>
-								<?php endif; ?>
-							</div>
-
-							<div class="project-card-body">
-								<?php if ( ! empty( $details['technologies'] ) && ! is_wp_error( $details['technologies'] ) ) : ?>
-									<div class="post--tags__wrapper">
-										<div class="skill-tags-cloud tags post--tags">
-											<?php foreach ( array_slice( $details['technologies'], 0, 3 ) as $tech ) : ?>
-												<span class="transparent-tag"><?php echo esc_html( $tech->name ); ?></span>
-											<?php endforeach; ?>
-										</div>
-									</div>
-								<?php endif; ?>
-
-								<h2 class="project-card-title">
-									<a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
-								</h2>
-
-								<div class="project-card-excerpt">
-									<?php the_excerpt(); ?>
 								</div>
 
-								<?php if ( ! empty( $details['metrics'] ) ) : ?>
-									<div class="project-metric-pill">
-										<span class="metric-icon">🚀</span>
-										<span class="metric-text"><?php echo esc_html( $details['metrics'] ); ?></span>
+								<!-- Top Actions (Info Toggle & Like Button) -->
+								<div class="post-top-actions">
+									<div class="toggle-info-container inset-shadow-effect">
+										<button type="button" class="toggle-info-btn" aria-label="<?php esc_attr_e( 'Toggle Post Info', 'stories' ); ?>" title="<?php esc_attr_e( 'Toggle Post Info', 'stories' ); ?>">
+											<?php if ( function_exists( 'stories_svg' ) ) { stories_svg( 'info', array( 'size' => 18 ) ); } ?>
+										</button>
 									</div>
-								<?php endif; ?>
+									<?php if ( function_exists( 'stories_like_button' ) ) { stories_like_button(); } ?>
+								</div>
 
-								<footer class="project-card-footer">
-									<a href="<?php the_permalink(); ?>" class="btn-read-case-study">
-										<?php esc_html_e( 'Ver Caso de Estudio', 'chanodev' ); ?>
-										<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
-									</a>
-								</footer>
+								<!-- Information Overlay Card -->
+								<div class="info-overlay quote-info-overlay standard-info-overlay">
+									<header class="entry-header">
+										<div class="entry-badge">
+											<?php if ( ! empty( $details['types'] ) && ! is_wp_error( $details['types'] ) ) : ?>
+												<span class="project-type-badge"><?php echo esc_html( $details['types'][0]->name ); ?></span>
+											<?php elseif ( function_exists( 'stories_post_type_badge' ) ) : ?>
+												<?php stories_post_type_badge(); ?>
+											<?php endif; ?>
+										</div>
+									</header>
+
+									<div class="entry-body">
+										<?php the_title( '<h2 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h2>' ); ?>
+
+										<div class="entry-meta">
+											<?php if ( function_exists( 'stories_posted_on' ) ) stories_posted_on(); ?>
+											<?php if ( ! empty( $details['client'] ) ) : ?>
+												<span class="entry-client">🏢 <?php echo esc_html( $details['client'] ); ?></span>
+											<?php endif; ?>
+										</div>
+
+										<div class="entry-summary">
+											<?php the_excerpt(); ?>
+										</div>
+
+										<?php if ( ! empty( $details['metrics'] ) ) : ?>
+											<div class="project-metric-pill">
+												<span class="metric-icon">🚀</span>
+												<span class="metric-text"><?php echo esc_html( $details['metrics'] ); ?></span>
+											</div>
+										<?php endif; ?>
+									</div>
+
+									<footer class="entry-footer">
+										<?php if ( ! empty( $details['technologies'] ) && ! is_wp_error( $details['technologies'] ) ) : ?>
+											<div class="post--tags__wrapper">
+												<div class="tags post--tags">
+													<?php foreach ( $details['technologies'] as $tech ) : ?>
+														<a class="post-tag small" href="<?php echo esc_url( get_term_link( $tech ) ); ?>">
+															<?php echo ( function_exists( 'stories_get_svg' ) ? stories_get_svg( 'tag', array( 'size' => 12 ) ) : '#' ) . esc_html( $tech->name ); ?>
+														</a>
+													<?php endforeach; ?>
+												</div>
+											</div>
+										<?php endif; ?>
+									</footer>
+								</div>
+
+								<!-- Bottom Bar showing Title -->
+								<div class="standard-bottom-bar">
+									<?php the_title( '<h2 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h2>' ); ?>
+								</div>
 							</div>
+							<div class="post__overlay"></div>
 						</article>
 					<?php endwhile; ?>
 				</div>

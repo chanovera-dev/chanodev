@@ -72,23 +72,25 @@ while ( have_posts() ) :
 			</div>
 
 			<!-- Project Actions / Links -->
-			<?php if ( ! empty( $details['live_url'] ) || ! empty( $details['repo_url'] ) ) : ?>
-				<div class="project-actions-bar">
-					<?php if ( ! empty( $details['live_url'] ) ) : ?>
-						<a href="<?php echo esc_url( $details['live_url'] ); ?>" target="_blank" rel="noopener noreferrer" class="btn-project-live">
-							<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
-							<?php esc_html_e( 'Visitar Sitio Web en Vivo', 'chanodev' ); ?>
-						</a>
-					<?php endif; ?>
+			<div class="project-actions-bar">
+				<?php if ( ! empty( $details['live_url'] ) ) : ?>
+					<a href="<?php echo esc_url( $details['live_url'] ); ?>" target="_blank" rel="noopener noreferrer" class="btn-project-live">
+						<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+						<?php esc_html_e( 'Visitar Sitio Web en Vivo', 'chanodev' ); ?>
+					</a>
+				<?php endif; ?>
 
-					<?php if ( ! empty( $details['repo_url'] ) ) : ?>
-						<a href="<?php echo esc_url( $details['repo_url'] ); ?>" target="_blank" rel="noopener noreferrer" class="btn-project-repo">
-							<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
-							<?php esc_html_e( 'Ver Repositorio (Código)', 'chanodev' ); ?>
-						</a>
-					<?php endif; ?>
+				<?php if ( ! empty( $details['repo_url'] ) ) : ?>
+					<a href="<?php echo esc_url( $details['repo_url'] ); ?>" target="_blank" rel="noopener noreferrer" class="btn-project-repo">
+						<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+						<?php esc_html_e( 'Ver Repositorio (Código)', 'chanodev' ); ?>
+					</a>
+				<?php endif; ?>
+
+				<div class="project-single-like">
+					<?php if ( function_exists( 'stories_like_button' ) ) { stories_like_button(); } ?>
 				</div>
-			<?php endif; ?>
+			</div>
 		</div>
 	</section>
 

@@ -2017,162 +2017,43 @@ a:focus-visible {
 }
 
 .chanodev-projects-grid {
-	display: grid;
-	grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-	gap: 2rem;
 	margin-bottom: 3rem;
 }
 
-.chanodev-project-card {
-	background: var(--chanodev-surface);
-	border: 1px solid var(--chanodev-border);
-	border-radius: var(--card-border-radius);
-	overflow: hidden;
-	transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-	display: flex;
-	flex-direction: column;
-	box-shadow: var(--chanodev-shadow-sm);
-}
-
-.chanodev-project-card:hover {
-	transform: translateY(-5px);
-	box-shadow: var(--chanodev-shadow-lg);
-	border-color: rgba(104, 159, 56, 0.4);
-}
-
-.project-card-media {
-	position: relative;
-	width: 100%;
-	aspect-ratio: 16 / 10;
-	background: #e2e8f0;
-	overflow: hidden;
-}
-
-.project-card-img {
-	width: 100%;
-	height: 100%;
-	object-fit: cover;
-	transition: transform 0.4s ease;
-}
-
-.chanodev-project-card:hover .project-card-img {
-	transform: scale(1.05);
-}
-
-.project-card-placeholder {
-	width: 100%;
-	height: 100%;
-	position: relative;
-	background-color: var(--bg-card, #ffffff);
-	background-image:
-		/* Major Blueprint Grid (40px) */
-		linear-gradient(to right, color-mix(in srgb, var(--color-primary, #0284c7) 26%, transparent) 1px, transparent 1px),
-		linear-gradient(to bottom, color-mix(in srgb, var(--color-primary, #0284c7) 26%, transparent) 1px, transparent 1px),
-		/* Minor Sub-Grid (8px) */
-		linear-gradient(to right, color-mix(in srgb, var(--color-primary, #0284c7) 10%, transparent) 1px, transparent 1px),
-		linear-gradient(to bottom, color-mix(in srgb, var(--color-primary, #0284c7) 10%, transparent) 1px, transparent 1px);
-	background-size: 40px 40px, 40px 40px, 8px 8px, 8px 8px;
-	background-position: center center;
-	border-bottom: 1px solid var(--border-light, color-mix(in srgb, var(--color-text-body, #0f172a) 8%, transparent));
-	overflow: hidden;
-}
-
-.project-type-badge {
-	position: absolute;
-	top: 12px;
-	left: 12px;
-	background: var(--bg-card, #ffffff);
-	border: 1px solid var(--border-light, rgba(0, 0, 0, 0.08));
-	color: var(--color-text-heading, #0f172a);
-	font-size: 0.75rem;
+/* Enhancements for Project Cards adopting the Standard Post Format */
+.chanodev-project-card .project-type-badge {
+	display: inline-block;
+	font-size: 0.72rem;
 	font-weight: 700;
-	padding: 0.3rem 0.7rem;
-	border-radius: var(--badge-border-radius);
-	letter-spacing: 0.03em;
-	box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
-	z-index: 5;
+	padding: 0.25rem 0.65rem;
+	border-radius: var(--badge-border-radius, 4px);
+	background: var(--chanodev-accent-dark, #689f38);
+	color: #ffffff;
+	text-transform: uppercase;
+	letter-spacing: 0.04em;
+	line-height: 1.2;
 }
 
-.project-card-body {
-	padding: 1.5rem;
-	display: flex;
-	flex-direction: column;
-	flex: 1;
-}
-
-.project-tech-tags {
-	display: flex;
-	gap: 0.4rem;
-	flex-wrap: wrap;
-	margin-bottom: 0.8rem;
-}
-
-.tech-tag {
-	font-size: 0.75rem;
-	font-weight: 600;
-	background: #f1f5f9;
-	color: #475569;
-	padding: 0.2rem 0.55rem;
-	border-radius: 4px;
-}
-
-.project-card-title {
-	font-size: 1.3rem;
-	font-weight: 700;
-	margin: 0 0 0.6rem 0;
-	line-height: 1.3;
-}
-
-.project-card-title a {
-	color: var(--chanodev-text-main);
-	text-decoration: none;
-	transition: color 0.2s ease;
-}
-
-.project-card-title a:hover {
-	color: var(--chanodev-accent-dark, #689f38);
-}
-
-.project-card-excerpt {
-	font-size: 0.95rem;
-	color: var(--chanodev-text-muted);
-	line-height: 1.5;
-	margin-bottom: 1rem;
-	flex: 1;
+.chanodev-project-card .entry-client {
+	display: inline-flex;
+	align-items: center;
+	font-size: 0.82rem;
+	color: var(--color-text-light, #cbd5e1);
+	margin-left: 0.5rem;
 }
 
 .project-metric-pill {
 	display: inline-flex;
 	align-items: center;
 	gap: 0.4rem;
-	font-size: 0.85rem;
+	font-size: 0.8rem;
 	font-weight: 600;
-	background: #effaf0;
-	color: #2e7d32;
-	border: 1px solid #d4edda;
-	padding: 0.3rem 0.7rem;
+	background: rgba(104, 159, 56, 0.2);
+	color: #a3e635;
+	border: 1px solid rgba(163, 230, 53, 0.35);
+	padding: 0.25rem 0.65rem;
 	border-radius: 6px;
-	margin-bottom: 1.2rem;
-}
-
-.project-card-footer {
-	padding-top: 1rem;
-	border-top: 1px solid var(--chanodev-border);
-}
-
-.btn-read-case-study {
-	display: inline-flex;
-	align-items: center;
-	gap: 0.4rem;
-	font-size: 0.9rem;
-	font-weight: 700;
-	color: var(--chanodev-accent-dark, #689f38);
-	text-decoration: none;
-	transition: gap 0.2s ease;
-}
-
-.btn-read-case-study:hover {
-	gap: 0.7rem;
+	margin-top: 0.65rem;
 }
 
 /* ==========================================================================
@@ -2271,6 +2152,35 @@ a:focus-visible {
 
 .btn-project-repo:hover {
 	background: var(--chanodev-surface-elevated);
+}
+
+.project-single-like {
+	display: inline-flex;
+	align-items: center;
+}
+
+.project-single-like .like-btn-container {
+	opacity: 1 !important;
+}
+
+.project-single-like .button__like {
+	min-height: 46px;
+	padding: 0.75rem 1.25rem;
+	border-radius: var(--badge-border-radius);
+	border: 1px solid var(--chanodev-border);
+	background: var(--chanodev-surface);
+	color: var(--chanodev-text-main);
+	display: inline-flex;
+	align-items: center;
+	gap: 0.5rem;
+	cursor: pointer;
+	transition: all 0.2s ease;
+}
+
+.project-single-like .button__like:hover,
+.project-single-like .button__like.liked {
+	border-color: #ef4444;
+	color: #ef4444;
 }
 
 .project-featured-image-wrapper {
@@ -2932,7 +2842,7 @@ a:focus-visible {
 	border: none;
 	padding: 0;
 	margin-top: 0;
-	margin-bottom: 0.8rem;
+	/* margin-bottom: 0.8rem; */
 	overflow: hidden;
 
 	&::before,
