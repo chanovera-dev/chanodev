@@ -226,6 +226,9 @@ get_header();
 							<?php esc_html_e( 'Cargar plantilla rápida:', 'chanodev' ); ?>
 						</span>
 						<div class="preset-pill-group">
+							<button type="button" class="preset-pill" data-preset="xmeetings">
+								📅 <?php esc_html_e( 'X-Meetings SaaS', 'chanodev' ); ?>
+							</button>
 							<button type="button" class="preset-pill" data-preset="stories">
 								📖 <?php esc_html_e( 'Tema Stories', 'chanodev' ); ?>
 							</button>
@@ -1174,6 +1177,20 @@ document.addEventListener("DOMContentLoaded", function () {
 
 	// 8. 1-Click Realistic Presets
 	const presetLibrary = {
+		xmeetings: {
+			title: "X-Meetings: Plataforma SaaS de Agendamiento Inteligente y Automatización de Notificaciones",
+			excerpt: "Plataforma SaaS multi-tenant para agendamiento inteligente de citas, sincronización bidireccional con Google Calendar API, procesamiento asíncrono con Redis/BullMQ y recordatorios automatizados vía WhatsApp Cloud API.",
+			client: "Startup SaaS / Proyecto Propio",
+			role: "Lead Software Architect & Full-Stack Engineer",
+			year: "2024",
+			metrics: "+99.9% Uptime SLA · -75% No-Shows con WhatsApp · Sync Google Calendar <250ms",
+			liveUrl: "https://atmeetly.com",
+			repoUrl: "https://github.com/chanovera-dev/x-meetings",
+			challenge: "Diseñar una arquitectura escalable y distribuida de alta disponibilidad capaz de gestionar agendas y reservas concurrentes en tiempo real, evitando colisiones de horarios (double-booking) y garantizando el despacho puntual de recordatorios diferidos (-24h y -1h) vía WhatsApp Cloud API sin sobrecargar los procesos de la aplicación.",
+			solution: "Implementación de microservicios con Express y TypeScript desacoplados mediante colas de mensajes con Redis y BullMQ para procesamiento asíncrono. Sincronización bidireccional OAuth 2.0 con Google Calendar API con cifrado AES-256 de credenciales en PostgreSQL, webhooks con firma HMAC-SHA256 y frontend reactivo en Next.js (App Router) con widget embebible zero-conflict vía iframe dinámico y postMessage.",
+			content: "### Arquitectura de Microservicios\nInfraestructura basada en microservicios desacoplados con API Gateway, colas de procesamiento asíncrono con BullMQ y Redis para aislamiento total de operaciones I/O intensivas.\n\n### Sincronización Bidireccional de Calendarios\nIntegración completa con Google Calendar API que resuelve disponibilidad en tiempo real con latencias sub-200ms y caché invalidada reactivamente.\n\n### Recordatorios Automatizados por WhatsApp\nWorker dedicado para despachos diferidos con WhatsApp Cloud API, reduciendo el ausentismo en un 75%.\n\n### Widget Embebible Zero-Conflict\nIntegración para sitios de terceros con iframe dinámico y comunicación segura mediante window.postMessage con auto-ajuste de altura.",
+			tech: "Next.js, React, TypeScript, Node.js, Express, PostgreSQL, Redis, Tailwind CSS, WhatsApp Cloud API, Google Calendar API, REST API, Docker"
+		},
 		stories: {
 			title: "Stories — Tema WordPress Modular de Alto Rendimiento & Experiencias Multimedia",
 			excerpt: "Tema moderno, modular y ultraligero para WordPress diseñado para publicaciones editoriales y experiencias interactivas con soporte nativo para los 9 formatos de post y 100/100 en Core Web Vitals.",
