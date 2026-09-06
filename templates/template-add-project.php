@@ -226,6 +226,9 @@ get_header();
 							<?php esc_html_e( 'Cargar plantilla rápida:', 'chanodev' ); ?>
 						</span>
 						<div class="preset-pill-group">
+							<button type="button" class="preset-pill" data-preset="crisisacademy">
+								🛡️ <?php esc_html_e( 'The Crisis Academy', 'chanodev' ); ?>
+							</button>
 							<button type="button" class="preset-pill" data-preset="xmeetings">
 								📅 <?php esc_html_e( 'X-Meetings SaaS', 'chanodev' ); ?>
 							</button>
@@ -1177,6 +1180,19 @@ document.addEventListener("DOMContentLoaded", function () {
 
 	// 8. 1-Click Realistic Presets
 	const presetLibrary = {
+		crisisacademy: {
+			title: "The Crisis Academy: Plataforma Especializada en Gestión y Simulación de Crisis Corporativas",
+			excerpt: "Ecosistema formativo y simulador interactivo de crisis corporativas en tiempo real para comités de crisis directivos y directores de comunicación (Chief Reputation Officers).",
+			client: "The Crisis Academy",
+			role: "Full-Stack WordPress Architect & Plugin Developer",
+			year: "2024",
+			metrics: "Simulador interactivo de 7 fases en tiempo real · 100/100 Core Web Vitals · Formación C-Level y comités directivos",
+			liveUrl: "https://thecrisisacademy.com/",
+			challenge: "Desarrollar una experiencia inmersiva para comités de crisis y directores de comunicación capaz de simular escenarios de alta presión mediática y digital en tiempo real, evaluando tiempos de respuesta, costos reputacionales y caída de valor de mercado sin depender de plataformas SaaS externas costosas.",
+			solution: "Diseño y desarrollo de un tema a medida ultra optimizado junto al plugin propietario 'Simulador de Crisis' en PHP 8 y JavaScript Vanilla. Integra cronómetros reactivos, contadores de costo acumulado de crisis, calculadoras de impacto financiero y un flujo secuencial ramificado con evaluación diagnóstica de voceros y equipos de respuesta.",
+			content: "### Desarrollo a Medida y Simulador Propietario\nEl núcleo tecnológico del proyecto radica en la creación del plugin a medida 'Simulador de Crisis', desarrollado íntegramente en PHP 8 y JavaScript Vanilla reactivo. Este simulador orquesta una dinámica interactiva de 7 fases secuenciales en tiempo real:\n\n- **Detección y Radar de Amenazas**: Identificación de señales tempranas y activación de protocolos.\n- **Activación del War Room**: Distribución y asignación de roles estratégicos del comité.\n- **Evaluación de Impacto y Triage**: Matriz en vivo de severidad y riesgos colaterales.\n- **Mapa Dinámico de Stakeholders**: Priorización estratégica de audiencias e interlocutores clave.\n- **Estrategia y Mensajes Clave**: Simulación de comunicados de contingencia y reputación.\n- **Simulacro de Rueda de Prensa**: Cronómetro de respuesta bajo presión ante medios.\n- **Post-Mortem y Diagnóstico Cuantitativo**: Métricas de desempeño, cálculo del costo financiero de la crisis y recomendaciones automáticas.\n\n### Rendimiento, Privacidad y Arquitectura\nToda la interfaz fue construida con una arquitectura ligera basada en CSS Grid, diseño Dark Mode corporativo de alto contraste y cero dependencias pesadas de terceros. Cumple con calificaciones de 100/100 en Core Web Vitals.",
+			tech: "WordPress, PHP 8, JavaScript ES6+, Custom Plugin Development, ACF Pro, CSS Grid & Flexbox, WPO, Simulación Interactiva"
+		},
 		xmeetings: {
 			title: "X-Meetings: Plataforma SaaS de Agendamiento Inteligente y Automatización de Notificaciones",
 			excerpt: "Plataforma SaaS multi-tenant para agendamiento inteligente de citas, sincronización bidireccional con Google Calendar API, procesamiento asíncrono con Redis/BullMQ y recordatorios automatizados vía WhatsApp Cloud API.",
