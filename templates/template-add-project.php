@@ -226,6 +226,9 @@ get_header();
 							<?php esc_html_e( 'Cargar plantilla rápida:', 'chanodev' ); ?>
 						</span>
 						<div class="preset-pill-group">
+							<button type="button" class="preset-pill" data-preset="zuky">
+								🎨 <?php esc_html_e( "ZuKy's Art Club", 'chanodev' ); ?>
+							</button>
 							<button type="button" class="preset-pill" data-preset="crisisacademy">
 								🛡️ <?php esc_html_e( 'The Crisis Academy', 'chanodev' ); ?>
 							</button>
@@ -1180,6 +1183,19 @@ document.addEventListener("DOMContentLoaded", function () {
 
 	// 8. 1-Click Realistic Presets
 	const presetLibrary = {
+		zuky: {
+			title: "ZuKy's Art Club: Portafolio Digital & Galería de Arte Ilustrado",
+			excerpt: "Plataforma web personal, galería de arte y canal de comisiones para el ilustrador y creador visual Fernando Sierra Vera (ZuKy), con enfoque en arte anime y narrativa secuencial.",
+			client: "ZuKy's Art Club / Fernando Vera",
+			role: "Diseñador Web, Frontend Developer & WPO Architect",
+			year: "2025",
+			metrics: "Galería de arte inmersiva · Carga ultrarrápida de imágenes · Sistema de solicitud de comisiones integrado",
+			liveUrl: "https://zuky.space",
+			challenge: "Crear una plataforma de exhibición artística que cargue galerías de ilustraciones en alta resolución sin degradar los tiempos de respuesta móviles ni saturar el ancho de banda, permitiendo al mismo tiempo conectar emocionalmente con los lectores y gestionar encargos creativos.",
+			solution: "Desarrollo de un sitio web ultraligero con diseño responsive a medida, optimización automatizada de formatos gráficos, visor interactivo de obras de arte, integración con el espacio literario Relatos & Cartas y pasarela de contacto para comisiones personalizadas.",
+			content: "### Identidad Visual & Galerías de Alto Rendimiento\nZuKy's Art Club es la casa digital del artista Fernando Sierra Vera. Se diseñó un entorno limpio y envolvente que cede todo el protagonismo a la ilustración, el color y la narrativa visual de cada obra.\n\n### Aspectos Técnicos Destacados\n- **Galería Adaptativa con Carga Diferida (Lazy Loading)**: Carga eficiente de ilustraciones en formatos WebP/AVIF reduciendo drásticamente el peso de página.\n- **Integración con Relatos & Cartas**: Conexión con piezas editoriales y cuentos que enriquecen el trasfondo de los personajes.\n- **Canal de Comisiones Personalizadas**: Flujo amigable para cotización de dibujos por encargo.\n- **Optimización WPO**: CSS Vanilla modular, tipografías locales y cumplimiento estricto de accesibilidad.",
+			tech: "WordPress, PHP 8, JavaScript ES6+, CSS Grid & Flexbox, WPO, Responsive Design, Optimización Multimedia"
+		},
 		crisisacademy: {
 			title: "The Crisis Academy: Plataforma Especializada en Gestión y Simulación de Crisis Corporativas",
 			excerpt: "Ecosistema formativo y simulador interactivo de crisis corporativas en tiempo real para comités de crisis directivos y directores de comunicación (Chief Reputation Officers).",
