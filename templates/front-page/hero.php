@@ -32,7 +32,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 						<?php echo esc_html( $hero_subheadline ); ?>
 					</p>
 
-					<div class="hero-actions">
+					<div class="hero-actions actions">
 						<?php if ( ! empty( $hero_primary_txt ) ) : ?>
 							<a href="<?php echo esc_url( $hero_primary_url ); ?>" class="btn primary">
 								<span><?php echo esc_html( $hero_primary_txt ); ?></span>
