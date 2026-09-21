@@ -18,10 +18,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 					<?php if ( ! empty( $auth_kicker ) ) : ?>
 						<span class="sub-heading"><?php echo esc_html( $auth_kicker ); ?></span>
 					<?php endif; ?>
-					<span class="sub-heading green">
-						<span class="status-pulse-dot"></span>
-						<?php esc_html_e( 'Disponible para nuevos proyectos', 'chanodev' ); ?>
-					</span>
 				</div>
 
 				<h2><?php echo esc_html( $auth_title ); ?></h2>

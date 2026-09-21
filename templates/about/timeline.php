@@ -48,9 +48,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 								aria-selected="<?php echo ( 0 === $index ) ? 'true' : 'false'; ?>">
 							<span class="step-node-badge">
 								<span class="step-node-num"><?php echo esc_html( $step_num ); ?></span>
-								<?php if ( $is_current ) : ?>
-									<span class="timeline-beacon-ring"></span>
-								<?php endif; ?>
+								<span class="timeline-beacon-ring"></span>
 							</span>
 							<span class="step-meta">
 								<span class="step-period"><?php echo esc_html( $period ); ?></span>
@@ -97,6 +95,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 							?>
 							<article class="timeline-3d-card <?php echo esc_attr( $state_class ); ?> <?php echo $is_current ? 'is-current' : ''; ?>"
 									 data-card-index="<?php echo esc_attr( $index ); ?>"
+									 data-stack-offset="<?php echo esc_attr( $index ); ?>"
 									 style="--card-index: <?php echo esc_attr( $index ); ?>;">
 								
 								<!-- Front face (visible when upright in deck) -->
@@ -109,17 +108,12 @@ if ( ! defined( 'ABSPATH' ) ) {
 												<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
 												<?php echo esc_html( $period ); ?>
 											</span>
-											<?php if ( $is_current ) : ?>
-												<span class="sub-heading green">
-													<span class="status-pulse-dot"></span>
-													<?php esc_html_e( 'En curso', 'chanodev' ); ?>
-												</span>
-											<?php endif; ?>
+											
 											<?php if ( ! empty( $mtag ) ) : ?>
 												<span class="transparent-tag full-size"><?php echo esc_html( $mtag ); ?></span>
 											<?php endif; ?>
 										</div>
-										<span class="transparent-tag full-size"><?php echo esc_html( $step_num ); ?> / <?php echo esc_html( str_pad( (string) count( $timeline_milestones ), 2, '0', STR_PAD_LEFT ) ); ?></span>
+										
 									</div>
 
 									<div class="timeline-card-body">
@@ -132,9 +126,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 											<span class="status-pulse-dot"></span>
 											<span><?php esc_html_e( 'Hito', 'chanodev' ); ?> <?php echo esc_html( $step_num ); ?></span>
 										</div>
-										<button type="button" class="btn sub-heading timeline" aria-label="<?php esc_attr_e( 'Pasar al siguiente hito', 'chanodev' ); ?>">
+										<button type="button" class="btn sub-heading timeline timeline-card-drop-trigger" aria-label="<?php esc_attr_e( 'Pasar al siguiente hito', 'chanodev' ); ?>">
 											<span><?php esc_html_e( 'Deslizar', 'chanodev' ); ?></span>
-											<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><polyline points="19 12 12 19 5 12"></polyline></svg>
+											<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
 										</button>
 									</div>
 								</div>

@@ -12,21 +12,21 @@ if ( ! defined( 'ABSPATH' ) ) {
 <!-- 1. Hero Section -->
 <section class="block services-hero-block">
 	<div class="content">
-		<div class="services-hero-grid">
-			<div class="services-hero-copy">
+		<div class="hero-grid">
+			<div class="hero-text">
 				<?php if ( ! empty( $hero_kicker ) ) : ?>
 					<span class="sub-heading"><?php echo esc_html( $hero_kicker ); ?></span>
 				<?php endif; ?>
 
 				<?php if ( ! empty( $hero_title ) ) : ?>
-					<h1 class="services-main-title"><?php echo esc_html( $hero_title ); ?></h1>
+					<h1 class="headline"><?php echo esc_html( $hero_title ); ?></h1>
 				<?php endif; ?>
 
 				<?php if ( ! empty( $hero_desc ) ) : ?>
-					<p class="services-main-description"><?php echo esc_html( $hero_desc ); ?></p>
+					<p class="subheadline"><?php echo esc_html( $hero_desc ); ?></p>
 				<?php endif; ?>
 
-				<div class="services-hero-actions">
+				<div class="services-hero-actions btn-actions">
 					<?php if ( ! empty( $primary_btn_txt ) ) : ?>
 						<a href="<?php echo esc_url( $primary_btn_url ); ?>" class="btn primary">
 							<?php echo esc_html( $primary_btn_txt ); ?>
@@ -40,13 +40,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 						</a>
 					<?php endif; ?>
 				</div>
-
-				<?php if ( ! empty( $trust_text ) ) : ?>
-					<div class="services-trust-line">
-						<span class="status-dot" aria-hidden="true"></span>
-						<?php echo esc_html( $trust_text ); ?>
-					</div>
-				<?php endif; ?>
 
 				<!-- Dynamic Slideshow Proof Strip -->
 				<?php if ( ! empty( $proof_slides ) ) : ?>
@@ -66,31 +59,40 @@ if ( ! defined( 'ABSPATH' ) ) {
 				<?php endif; ?>
 			</div>
 
-			<div class="services-hero-visual" aria-label="<?php esc_attr_e( 'Panel visual de una arquitectura web', 'chanodev' ); ?>">
-				<div class="architecture-window">
-					<div class="architecture-bar">
-						<span></span><span></span><span></span>
-						<strong><?php echo esc_html( $window_title ); ?></strong>
-					</div>
-					<div class="architecture-body">
-						<div class="architecture-sidebar">
-							<b><?php echo esc_html( $window_badge ); ?></b>
-							<i></i><i></i><i></i>
-						</div>
-						<div class="architecture-content">
-							<small><?php echo esc_html( $window_tag ); ?></small>
-							<h2>
-								<?php echo esc_html( $window_h2 ); ?><br>
-								<em><?php echo esc_html( $window_h2_em ); ?></em>
-							</h2>
-							<div class="architecture-bars">
-								<span></span><span></span><span></span>
+			<div class="home-hero-visual">
+				<div class="home-deck-wrapper">
+					<div class="home-deck-stack">
+						<div class="home-deck-card is-active" role="region" aria-label="<?php esc_attr_e( 'Panel visual de una arquitectura web', 'chanodev' ); ?>">
+							<div class="mockup-browser-header">
+								<div class="terminal-dots">
+									<span class="term-btn red"></span>
+									<span class="term-btn yellow"></span>
+									<span class="term-btn green"></span>
+								</div>
+								<strong class="mockup-url-bar"><?php echo esc_html( $window_title ); ?></strong>
 							</div>
-							<div class="architecture-status">
-								<b><?php echo esc_html( $metric_1_val ); ?></b>
-								<span><?php echo esc_html( $metric_1_lbl ); ?></span>
-								<b><?php echo esc_html( $metric_2_val ); ?></b>
-								<span><?php echo esc_html( $metric_2_lbl ); ?></span>
+
+							<div class="mockup-body architecture-body">
+								<div class="architecture-sidebar">
+									<b><?php echo esc_html( $window_badge ); ?></b>
+									<i></i><i></i><i></i>
+								</div>
+								<div class="architecture-content">
+									<small><?php echo esc_html( $window_tag ); ?></small>
+									<h2>
+										<?php echo esc_html( $window_h2 ); ?><br>
+										<em><?php echo esc_html( $window_h2_em ); ?></em>
+									</h2>
+									<div class="architecture-bars">
+										<span></span><span></span><span></span>
+									</div>
+									<div class="architecture-status">
+										<b><?php echo esc_html( $metric_1_val ); ?></b>
+										<span><?php echo esc_html( $metric_1_lbl ); ?></span>
+										<b><?php echo esc_html( $metric_2_val ); ?></b>
+										<span><?php echo esc_html( $metric_2_lbl ); ?></span>
+									</div>
+								</div>
 							</div>
 						</div>
 					</div>

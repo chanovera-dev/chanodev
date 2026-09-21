@@ -34,12 +34,10 @@ if ( ! defined( 'ABSPATH' ) ) {
 					?>
 					<article class="about-skill-card hover-glow" data-reveal="fade-up">
 						<div class="skill-card-top">
-							<div class="big-badge sub-heading" aria-hidden="true">
+							<div class="timeline sub-heading" aria-hidden="true">
 								<?php echo $icon; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
+								<?php echo esc_html( $badge ); ?>
 							</div>
-							<?php if ( ! empty( $badge ) ) : ?>
-								<span class="sub-heading"><?php echo esc_html( $badge ); ?></span>
-							<?php endif; ?>
 						</div>
 
 						<h3><?php echo esc_html( $title ); ?></h3>

@@ -196,7 +196,7 @@ document.addEventListener('DOMContentLoaded', function () {
 			if (totalItems > 1) {
 				autoHeroInterval = setInterval(function () {
 					syncHeroState(currentHeroIndex + 1);
-				}, 4500);
+				}, 10000);
 			}
 		}
 
@@ -737,7 +737,7 @@ document.addEventListener('DOMContentLoaded', function () {
 		const nextBtn = showcase.querySelector('.timeline-next-btn');
 		const playToggle = showcase.querySelector('.timeline-play-toggle');
 		const autoplayFill = showcase.querySelector('.timeline-autoplay-fill');
-		const dropTriggers = showcase.querySelectorAll('.timeline-card-drop-trigger');
+		const dropTriggers = showcase.querySelectorAll('.timeline-card-drop-trigger, .timeline-card-footer .btn');
 
 		if (!cards.length) return;
 
@@ -752,19 +752,20 @@ document.addEventListener('DOMContentLoaded', function () {
 
 		function setCardPositions(targetIndex) {
 			cards.forEach(function (card, i) {
-				card.classList.remove('is-rising');
-				if (i < targetIndex) {
-					card.classList.remove('is-active', 'is-stacked');
-					card.classList.add('is-fallen');
-					card.style.setProperty('--stack-offset', '0');
-				} else if (i === targetIndex) {
-					card.classList.remove('is-fallen', 'is-stacked');
+				card.classList.remove('is-fallen', 'is-rising');
+
+				const offset = (i - targetIndex + total) % total;
+				card.setAttribute('data-stack-offset', String(offset));
+				card.style.setProperty('--stack-offset', String(offset));
+
+				if (offset === 0) {
+					card.classList.remove('is-stacked');
 					card.classList.add('is-active');
-					card.style.setProperty('--stack-offset', '0');
+					card.setAttribute('aria-hidden', 'false');
 				} else {
-					card.classList.remove('is-active', 'is-fallen');
+					card.classList.remove('is-active');
 					card.classList.add('is-stacked');
-					card.style.setProperty('--stack-offset', String(i - targetIndex));
+					card.setAttribute('aria-hidden', 'true');
 				}
 			});
 
@@ -785,73 +786,49 @@ document.addEventListener('DOMContentLoaded', function () {
 		// Initial stack setup
 		setCardPositions(0);
 
-		function updateCards(targetIndex) {
-			if (isAnimating) return;
+		function updateCards(targetIndex, direction) {
+			if (isAnimating || targetIndex === currentIndex) return;
 			isAnimating = true;
 
-			setCardPositions(targetIndex);
+			const prevIndex = currentIndex;
+			const dir = direction || (targetIndex > prevIndex ? 'next' : 'prev');
+			const outgoingCard = cards[prevIndex];
+			const incomingCard = cards[targetIndex];
 
-			setTimeout(function () {
-				isAnimating = false;
-			}, 700);
-		}
-
-		function resetAllCardsToBeginning() {
-			if (isAnimating) return;
-			isAnimating = true;
-
-			// Add .is-rising to trigger the reverse cascade gathering
-			cards.forEach(function (card, i) {
-				card.classList.add('is-rising');
-				card.classList.remove('is-fallen');
-				if (i === 0) {
-					card.classList.add('is-active');
-					card.classList.remove('is-stacked');
-					card.style.setProperty('--stack-offset', '0');
-				} else {
-					card.classList.remove('is-active');
-					card.classList.add('is-stacked');
-					card.style.setProperty('--stack-offset', String(i));
-				}
+			// Clear animation classes from cards
+			cards.forEach(function (c) {
+				c.classList.remove('is-cycling-back', 'is-cycling-front');
 			});
 
-			stepBtns.forEach(function (btn, i) {
-				const active = (i === 0);
-				btn.classList.toggle('is-active', active);
-				btn.setAttribute('aria-selected', active ? 'true' : 'false');
-			});
-
-			if (progressBar) {
-				progressBar.style.height = '0%';
+			if (dir === 'next') {
+				// Current front card slides out to the right and returns to the back of the deck
+				outgoingCard.classList.add('is-cycling-back');
+				setCardPositions(targetIndex);
+			} else {
+				// Reverse: incoming card slides out from behind to the front
+				incomingCard.classList.add('is-cycling-front');
+				setCardPositions(targetIndex);
 			}
 
-			currentIndex = 0;
-
 			setTimeout(function () {
-				cards.forEach(function (card) {
-					card.classList.remove('is-rising');
+				cards.forEach(function (c) {
+					c.classList.remove('is-cycling-back', 'is-cycling-front');
 				});
 				isAnimating = false;
-			}, 950);
+			}, 750);
 		}
 
 		function nextSlide() {
 			if (isAnimating) return;
-			if (currentIndex < total - 1) {
-				updateCards(currentIndex + 1);
-			} else {
-				resetAllCardsToBeginning();
-			}
+			const nextIdx = (currentIndex + 1) % total;
+			updateCards(nextIdx, 'next');
 			restartAutoplay();
 		}
 
 		function prevSlide() {
 			if (isAnimating) return;
-			if (currentIndex > 0) {
-				updateCards(currentIndex - 1);
-			} else {
-				updateCards(total - 1);
-			}
+			const prevIdx = (currentIndex - 1 + total) % total;
+			updateCards(prevIdx, 'prev');
 			restartAutoplay();
 		}
 
@@ -875,7 +852,8 @@ document.addEventListener('DOMContentLoaded', function () {
 				e.preventDefault();
 				const targetIdx = parseInt(this.getAttribute('data-timeline-index'), 10);
 				if (!isNaN(targetIdx) && targetIdx !== currentIndex) {
-					updateCards(targetIdx);
+					const dir = targetIdx > currentIndex ? 'next' : 'prev';
+					updateCards(targetIdx, dir);
 					restartAutoplay();
 				}
 			});
@@ -883,11 +861,16 @@ document.addEventListener('DOMContentLoaded', function () {
 
 		cards.forEach(function (card) {
 			card.addEventListener('click', function (e) {
-				if (card.classList.contains('is-fallen')) {
-					e.preventDefault();
-					const cardIdx = parseInt(this.getAttribute('data-card-index'), 10);
-					if (!isNaN(cardIdx)) {
-						updateCards(cardIdx);
+				if (e.target.closest('.timeline-card-drop-trigger, .timeline-card-footer .btn')) {
+					return; // Handled by dropTriggers
+				}
+				const cardIdx = parseInt(this.getAttribute('data-card-index'), 10);
+				if (!isNaN(cardIdx)) {
+					if (cardIdx === currentIndex) {
+						nextSlide();
+					} else {
+						const dir = cardIdx > currentIndex ? 'next' : 'prev';
+						updateCards(cardIdx, dir);
 						restartAutoplay();
 					}
 				}

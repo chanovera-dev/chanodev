@@ -36,14 +36,12 @@ if ( ! defined( 'ABSPATH' ) ) {
                         <div class="home-pillar-slide<?php echo 0 === $index ? ' active' : ''; ?>" data-slide="<?php echo esc_attr( $index ); ?>">
                             <article class="home-pillar-card hover-glow">
                                 <div class="pillar-card-top">
-                                    <div class="big-badge sub-heading" aria-hidden="true">
+                                    <div class="sub-heading timeline" aria-hidden="true">
                                         <?php echo $picon; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
+                                        <?php echo esc_html( $pbdg ); ?>
                                     </div>
                                     <span class="transparent-tag full-size"><?php echo esc_html( $pnum ); ?></span>
                                 </div>
-                                <?php if ( ! empty( $pbdg ) ) : ?>
-                                    <span class="sub-heading pillar-tag"><?php echo esc_html( $pbdg ); ?></span>
-                                <?php endif; ?>
                                 <h3><?php echo esc_html( $pttl ); ?></h3>
                                 <p><?php echo esc_html( $ptxt ); ?></p>
                             </article>

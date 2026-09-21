@@ -13,26 +13,24 @@ if ( ! defined( 'ABSPATH' ) ) {
 <!-- 1. Hero Section -->
 	<section class="block home-hero-block">
 		<div class="content">
-			<div class="home-hero-grid">
-				<div class="home-hero-text">
-					<div class="home-hero-badge-row">
-						<?php if ( ! empty( $hero_status_txt ) ) : ?>
-							<div class="sub-heading">
-								<span class="status-pulse-dot" aria-hidden="true"></span>
-								<span><?php echo esc_html( $hero_status_txt ); ?></span>
-							</div>
-						<?php endif; ?>
-					</div>
+			<div class="hero-grid">
+				<div class="hero-text">
+					<?php if ( ! empty( $hero_status_txt ) ) : ?>
+						<div class="sub-heading">
+							<span class="status-pulse-dot" aria-hidden="true"></span>
+							<span><?php echo esc_html( $hero_status_txt ); ?></span>
+						</div>
+					<?php endif; ?>
 
-					<h1 class="hero-headline">
+					<h1 class="headline">
 						<?php echo esc_html( $hero_headline ); ?>
 					</h1>
 
-					<p class="hero-subheadline">
+					<p class="subheadline">
 						<?php echo esc_html( $hero_subheadline ); ?>
 					</p>
 
-					<div class="hero-actions actions">
+					<div class="btn-actions">
 						<?php if ( ! empty( $hero_primary_txt ) ) : ?>
 							<a href="<?php echo esc_url( $hero_primary_url ); ?>" class="btn primary">
 								<span><?php echo esc_html( $hero_primary_txt ); ?></span>
@@ -124,8 +122,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 												<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect width="8" height="8" x="3" y="3" rx="2"/><rect width="8" height="8" x="13" y="3" rx="2"/><rect width="8" height="8" x="3" y="13" rx="2"/><rect width="8" height="8" x="13" y="13" rx="2"/></svg>
 											</div>
 											<div>
-												<span class="arch-brand-heading"><?php echo esc_html( $arch_heading ); ?></span>
-												<span class="arch-sub-tag">🟢 <?php echo esc_html( $arch_subheading ); ?></span>
+												<div class="arch-brand-heading"><?php echo esc_html( $arch_heading ); ?></div>
+												<div class="arch-sub-tag">🟢 <?php echo esc_html( $arch_subheading ); ?></div>
 											</div>
 										</div>
 										<span class="arch-version-chip">v3.0 Strict</span>

@@ -14,7 +14,7 @@ get_header();
 require locate_template( 'templates/front-page/fallbacks.php' );
 ?>
 
-<main id="main" class="site-main" role="main">
+<main id="main" class="site-main chanodev-homepage" role="main">
 
 <?php
     $directory = get_stylesheet_directory() . '/templates/front-page';
