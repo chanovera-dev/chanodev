@@ -64,8 +64,10 @@ while ( have_posts() ) :
 						</a>
 					<?php endif; ?>
 
-					<div class="project-single-like">
-						<?php if ( function_exists( 'stories_like_button' ) ) { stories_like_button(); } ?>
+					<div class="project-single-like story-card">
+						<div class="post-top-actions">
+							<?php if ( function_exists( 'stories_like_button' ) ) { stories_like_button(); } ?>
+						</div>
 					</div>
 				</div>
 			</header>
@@ -199,6 +201,9 @@ while ( have_posts() ) :
 			</div>
 		</div>
 	</section>
+
+	<!-- Project Timeline / Navigation Section -->
+	<?php get_template_part( 'templates/single/project', 'navigation' ); ?>
 
 	<!-- Conversion CTA Section -->
 	<section class="block project-single-cta">

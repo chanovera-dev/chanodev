@@ -16,9 +16,9 @@ get_header();
 	<!-- Portfolio Header Hero Section -->
 	<section class="block portfolio-hero-block">
 		<div class="content">
-			<header class="portfolio-page-header">
-				<span class="portfolio-kicker"><?php esc_html_e( 'Casos de Estudio y Proyectos', 'chanodev' ); ?></span>
-				<h1 class="portfolio-page-title"><?php esc_html_e( 'Portafolio de Desarrollo Web', 'chanodev' ); ?></h1>
+			<header class="portfolio-page-header section-heading-center">
+				<span class="portfolio-kicker sub-heading"><?php esc_html_e( 'Casos de Estudio y Proyectos', 'chanodev' ); ?></span>
+				<h1 class="portfolio-page-title" style="margin: 0;"><?php esc_html_e( 'Portafolio de Desarrollo Web', 'chanodev' ); ?></h1>
 				<p class="portfolio-page-description">
 					<?php esc_html_e( 'Proyectos reales en WordPress a medida, tiendas online WooCommerce, aplicaciones full-stack en React y Node.js, y plataformas corporativas de alto rendimiento.', 'chanodev' ); ?>
 				</p>
