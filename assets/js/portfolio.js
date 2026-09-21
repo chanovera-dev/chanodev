@@ -4,8 +4,78 @@
  * - Process Steps Interactive Fade-in Slideshow
  * - Authority Metrics Automatic Fade-in Slideshow
  * - Smooth Interactive FAQ Accordion (WAAPI)
+ * - Resource & Battery Saver (Visibility & Viewport Throttler)
  */
+
+/**
+ * Global Resource Throttler:
+ * Automatically pauses CSS animations and JS timers when elements
+ * are out of the viewport or when the document/tab is hidden/out of focus.
+ */
+function createResourceThrottler(element, options) {
+	if (!element) return null;
+	options = options || {};
+	const onResume = options.onResume;
+	const onPause = options.onPause;
+	const rootMargin = options.rootMargin || '120px 0px 120px 0px';
+	const threshold = options.threshold !== undefined ? options.threshold : 0.02;
+
+	let inView = false;
+	let isRunning = false;
+
+	function update() {
+		const shouldRun = inView && !document.hidden;
+		if (shouldRun) {
+			element.classList.remove('is-anim-paused');
+			if (!isRunning) {
+				isRunning = true;
+				if (typeof onResume === 'function') onResume();
+			}
+		} else {
+			element.classList.add('is-anim-paused');
+			if (isRunning) {
+				isRunning = false;
+				if (typeof onPause === 'function') onPause();
+			}
+		}
+	}
+
+	if ('IntersectionObserver' in window) {
+		const observer = new IntersectionObserver(function (entries) {
+			entries.forEach(function (entry) {
+				inView = entry.isIntersecting;
+				update();
+			});
+		}, { rootMargin: rootMargin, threshold: threshold });
+
+		observer.observe(element);
+	} else {
+		inView = true;
+		update();
+	}
+
+	document.addEventListener('visibilitychange', update);
+
+	return {
+		update: update,
+		isInView: function () { return inView; }
+	};
+}
+
 document.addEventListener('DOMContentLoaded', function () {
+	// 0. Global Window / Tab Inactive Throttle
+	document.addEventListener('visibilitychange', function () {
+		document.documentElement.classList.toggle('is-tab-hidden', document.hidden);
+	});
+
+	// Auto-throttle animated sections and widgets across the page
+	const animContainers = document.querySelectorAll(
+		'section, .tech-marquee-wrapper, .authority-panel, .about-timeline-section, .testimonies-section, .home-hero-panel, [data-pause-offscreen]'
+	);
+	animContainers.forEach(function (container) {
+		createResourceThrottler(container);
+	});
+
 	// 1. Mouse Spotlight tracking
 	const spotlightCards = document.querySelectorAll(
 		'.hover-glow, .timeline-card-front, .service-detail-card, .architecture-window, .authority-metrics-track, .portfolio-cta-box, .profile-terminal-window, .code-terminal-window, .home-terminal-window, .home-deck-card, .home-mockup-window, .home-metric-card, .home-metric-slide-card, .about-skill-card, .about-metric-card, .about-philosophy-card, .philosophy-slide-card, .philosophy-visual-panel, .timeline-content-card, .home-pillar-card, .home-service-card, .tech-strip-wrapper'
@@ -133,8 +203,11 @@ document.addEventListener('DOMContentLoaded', function () {
 			authCarousel.addEventListener('mouseleave', startAutoSlide);
 		}
 
-		// Iniciar rotación automática
-		startAutoSlide();
+		// Iniciar rotación automática sincronizada con visibilidad en viewport
+		createResourceThrottler(authCarousel, {
+			onResume: startAutoSlide,
+			onPause: stopAutoSlide
+		});
 	})();
 
 	// 3.0 Home Hero Synchronized Showcase (Metrics + 3D Card Deck)
@@ -274,9 +347,13 @@ document.addEventListener('DOMContentLoaded', function () {
 			}, { passive: true });
 		});
 
-		// Initial start in sync
+		// Initial start in sync with viewport throttling
 		syncHeroState(0);
-		startAutoHeroRotation();
+		const heroContainer = deckWrapper || metricsCarousel;
+		createResourceThrottler(heroContainer, {
+			onResume: startAutoHeroRotation,
+			onPause: stopAutoHeroRotation
+		});
 	})();
 
 	// 3.1 Home Pillars Interactive Slideshow
@@ -377,9 +454,12 @@ document.addEventListener('DOMContentLoaded', function () {
 			startAutoRotation();
 		}, { passive: true });
 
-		// Initial start
+		// Initial start with viewport throttling
 		goToPillarSlide(0);
-		startAutoRotation();
+		createResourceThrottler(carousel, {
+			onResume: startAutoRotation,
+			onPause: stopAutoRotation
+		});
 	})();
 
 	// 3.2 Philosophy & Principles Slideshow (.philosophy-carousel-wrapper - Manual navigation)
@@ -952,13 +1032,23 @@ document.addEventListener('DOMContentLoaded', function () {
 
 		showcase.addEventListener('mouseleave', function () {
 			isHovered = false;
-			if (!isPaused) {
+			if (!isPaused && timelineThrottler && timelineThrottler.isInView()) {
 				startAutoplay();
 			}
 		});
 
-		// Start autoplay initially
-		startAutoplay();
+		// Viewport & visibility resource saver
+		const timelineSection = showcase.closest('.about-timeline-section') || showcase;
+		const timelineThrottler = createResourceThrottler(timelineSection, {
+			onResume: function () {
+				if (!isPaused && !isHovered) {
+					startAutoplay();
+				}
+			},
+			onPause: function () {
+				pauseAutoplay();
+			}
+		});
 	})();
 });
 
@@ -1159,30 +1249,49 @@ document.addEventListener("DOMContentLoaded", function () {
 
 		// Pause autoplay on mouse enter / hover
 		let isHovered = false;
-		container.addEventListener("mouseenter", () => { isHovered = true; });
-		container.addEventListener("mouseleave", () => { isHovered = false; });
-
-		// Autoplay when visible and not hovered
-		let autoplayInterval = setInterval(() => {
-			if (isHovered) return;
-			const rect = section.getBoundingClientRect();
-			const isVisible = rect.top < window.innerHeight && rect.bottom > 0;
-			if (isVisible) {
-				goToSlide(current + 1);
+		container.addEventListener("mouseenter", () => {
+			isHovered = true;
+			stopAutoplay();
+		});
+		container.addEventListener("mouseleave", () => {
+			isHovered = false;
+			if (testiThrottler && testiThrottler.isInView() && !document.hidden) {
+				startAutoplay();
 			}
-		}, 8000);
+		});
 
-		function resetAutoplay() {
-			clearInterval(autoplayInterval);
+		let autoplayInterval = null;
+
+		function startAutoplay() {
+			stopAutoplay();
+			if (isHovered || document.hidden) return;
 			autoplayInterval = setInterval(() => {
-				if (isHovered) return;
-				const rect = section.getBoundingClientRect();
-				const isVisible = rect.top < window.innerHeight && rect.bottom > 0;
-				if (isVisible) {
-					goToSlide(current + 1);
-				}
+				goToSlide(current + 1);
 			}, 8000);
 		}
+
+		function stopAutoplay() {
+			if (autoplayInterval) {
+				clearInterval(autoplayInterval);
+				autoplayInterval = null;
+			}
+		}
+
+		function resetAutoplay() {
+			stopAutoplay();
+			if (!isHovered && testiThrottler && testiThrottler.isInView() && !document.hidden) {
+				startAutoplay();
+			}
+		}
+
+		const testiThrottler = createResourceThrottler(section, {
+			onResume: function () {
+				if (!isHovered) startAutoplay();
+			},
+			onPause: function () {
+				stopAutoplay();
+			}
+		});
 	}
 
 	// First Render

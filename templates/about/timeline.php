@@ -30,9 +30,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 				<!-- Left: Stepper Navigation & Timeline Tracker -->
 				<div class="timeline-nav-stepper" role="tablist" aria-label="<?php esc_attr_e( 'Hitos de la trayectoria', 'chanodev' ); ?>">
-					<div class="timeline-stepper-progress-rail">
-						<div class="timeline-stepper-progress-bar"></div>
-					</div>
 					<?php foreach ( $timeline_milestones as $index => $item ) : ?>
 						<?php
 						$period     = ! empty( $item['period'] ) ? $item['period'] : '';

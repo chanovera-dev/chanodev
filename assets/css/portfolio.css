@@ -6,6 +6,25 @@
     --shadow-color: #092327;
 }
 
+/* ====================================================================== */
+/* Resource & Battery Saver: Pause Animations Out of View/Focus          */
+/* ====================================================================== */
+
+/* 1. Cuando la pestaña del navegador o ventana pierde el foco / está oculta */
+html.is-tab-hidden *,
+html.is-tab-hidden *::before,
+html.is-tab-hidden *::after {
+    animation-play-state: paused !important;
+}
+
+/* 2. Cuando una sección o componente animado está fuera del viewport */
+.is-anim-paused,
+.is-anim-paused *,
+.is-anim-paused *::before,
+.is-anim-paused *::after {
+    animation-play-state: paused !important;
+}
+
 .site-main .block:not(.block-breadcrumbs) {
     padding: clamp(0rem, 3.33vw, 3rem) 0;
 
@@ -1880,54 +1899,6 @@ Authority Panel
         gap: 0.9rem;
         position: relative;
 
-        & .timeline-stepper-progress-rail {
-            position: absolute;
-            left: 28px;
-            top: 36px;
-            bottom: 80px;
-            width: 16px;
-            background-color: rgba(255, 255, 255, 0.18);
-            mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 14' width='16' height='14'%3E%3Cpath d='M2 3 L8 9 L14 3' fill='none' stroke='black' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") repeat-y center top;
-            -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 14' width='16' height='14'%3E%3Cpath d='M2 3 L8 9 L14 3' fill='none' stroke='black' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") repeat-y center top;
-            mask-size: 16px 14px;
-            -webkit-mask-size: 16px 14px;
-            z-index: 1;
-
-            & .timeline-stepper-progress-bar {
-                position: relative;
-                width: 100%;
-                height: 0%;
-                background: linear-gradient(to bottom,
-                        #38bdf8 0%,
-                        color-mix(in srgb, var(--color-primary) 85%, #ffffff) 30%,
-                        var(--color-primary) 65%,
-                        #10b981 100%);
-                mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 14' width='16' height='14'%3E%3Cpath d='M2 3 L8 9 L14 3' fill='none' stroke='black' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") repeat-y center top;
-                -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 14' width='16' height='14'%3E%3Cpath d='M2 3 L8 9 L14 3' fill='none' stroke='black' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") repeat-y center top;
-                mask-size: 16px 14px;
-                -webkit-mask-size: 16px 14px;
-                filter:
-                    drop-shadow(0 0 4px color-mix(in srgb, var(--color-primary) 80%, #ffffff)) drop-shadow(0 0 10px var(--color-primary)) drop-shadow(0 0 16px color-mix(in srgb, var(--color-primary) 70%, #38bdf8));
-                transition: height 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-
-                &::before {
-                    position: absolute;
-                    content: '';
-                    inset: 0;
-                    background: radial-gradient(ellipse at center,
-                            color-mix(in srgb, var(--color-primary) 85%, #ffffff) 0%,
-                            var(--color-primary) 60%,
-                            transparent 100%);
-                    box-shadow: 0 0 14px var(--color-primary), 0 0 28px color-mix(in srgb, var(--color-primary) 80%, #38bdf8);
-                    filter: drop-shadow(0 0 8px var(--color-primary));
-                    opacity: 0.85;
-                    border-radius: var(--minibadge-border-radius);
-                    pointer-events: none;
-                    transition: opacity 0.4s ease;
-                }
-            }
-        }
-
         & .timeline-controls-bar {
             height: auto;
             padding: 4px;
@@ -2065,7 +2036,6 @@ Authority Panel
 
             &.is-active {
                 background: color-mix(in srgb, var(--color-secondary) 40%, transparent);
-                backdrop-filter: blur(.25rem);
                 border-color: #fff;
                 box-shadow: var(--shadow-card);
 
@@ -2118,7 +2088,6 @@ Authority Panel
                 flex-shrink: 0;
                 border-radius: var(--minibadge-border-radius);
                 background: color-mix(in srgb, var(--color-primary), transparent 90%);
-                backdrop-filter: blur(.5rem);
                 display: flex;
                 align-items: center;
                 justify-content: center;
@@ -2206,7 +2175,7 @@ Authority Panel
                 user-select: none;
                 border-radius: var(--card-border-radius);
                 pointer-events: none;
-                opacity: 0;
+                opacity: 1;
                 transition: transform 0.65s cubic-bezier(0.25, 1, 0.35, 1), opacity 0.45s ease, filter 0.45s ease;
 
                 /* 1. Stacked Position in Deck (Upcoming Cards) */
@@ -2230,9 +2199,8 @@ Authority Panel
                     --stack-y: -10px;
                     --stack-z: -35px;
                     --stack-scale: 0.96;
-                    --stack-rotZ: 1.2deg;
+                    --stack-rotZ: 0;
                     transform: translate3d(var(--stack-x), var(--stack-y), var(--stack-z)) scale(var(--stack-scale));
-                    opacity: 0.88;
                     z-index: 18;
                     filter: brightness(0.85) saturate(0.92);
 
@@ -2247,9 +2215,8 @@ Authority Panel
                     --stack-y: -18px;
                     --stack-z: -70px;
                     --stack-scale: 0.92;
-                    --stack-rotZ: 2.4deg;
+                    --stack-rotZ: 0;
                     transform: translate3d(var(--stack-x), var(--stack-y), var(--stack-z)) scale(var(--stack-scale));
-                    opacity: 0.65;
                     z-index: 12;
                     filter: brightness(0.7) saturate(0.85);
 
@@ -2264,9 +2231,8 @@ Authority Panel
                     --stack-y: -24px;
                     --stack-z: -105px;
                     --stack-scale: 0.88;
-                    --stack-rotZ: 3.6deg;
+                    --stack-rotZ: 0deg;
                     transform: translate3d(var(--stack-x), var(--stack-y), var(--stack-z)) scale(var(--stack-scale));
-                    opacity: 0.45;
                     z-index: 6;
                     filter: brightness(0.55) saturate(0.8);
 
@@ -2281,9 +2247,8 @@ Authority Panel
                     --stack-y: -28px;
                     --stack-z: -135px;
                     --stack-scale: 0.84;
-                    --stack-rotZ: 4.5deg;
+                    --stack-rotZ: 0;
                     transform: translate3d(var(--stack-x), var(--stack-y), var(--stack-z)) scale(var(--stack-scale)) rotateZ(var(--stack-rotZ));
-                    opacity: 0;
                     z-index: 2;
                     pointer-events: none;
                 }
@@ -2294,21 +2259,21 @@ Authority Panel
                         --stack-x: 8px;
                         --stack-y: -8px;
                         --stack-z: -25px;
-                        --stack-rotZ: 1deg;
+                        --stack-rotZ: 0deg;
                     }
 
                     &[data-stack-offset="2"] {
                         --stack-x: 16px;
                         --stack-y: -14px;
                         --stack-z: -50px;
-                        --stack-rotZ: 2deg;
+                        --stack-rotZ: 0deg;
                     }
 
                     &[data-stack-offset="3"] {
                         --stack-x: 22px;
                         --stack-y: -18px;
                         --stack-z: -75px;
-                        --stack-rotZ: 3deg;
+                        --stack-rotZ: 0deg;
                     }
                 }
 
@@ -4907,6 +4872,106 @@ Authority Panel
                 }
             }
         }
+    }
+}
+
+/* ==========================================================================
+   Entry & Scroll Reveal Animations (.is-revealed / [data-reveal])
+   ========================================================================== */
+html.js-reveal-ready [data-reveal] {
+    opacity: 0;
+    will-change: transform, opacity;
+    transition-property: opacity, transform, filter;
+    transition-duration: 0.85s;
+    transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+    transition-delay: var(--delay, 0ms);
+}
+
+/* Default / Fade-Up */
+html.js-reveal-ready [data-reveal="fade-up"],
+html.js-reveal-ready [data-reveal=""] {
+    transform: translate3d(0, 32px, 0);
+}
+
+/* Fade-Down */
+html.js-reveal-ready [data-reveal="fade-down"] {
+    transform: translate3d(0, -28px, 0);
+}
+
+/* Fade-Left (slides in from right to left) */
+html.js-reveal-ready [data-reveal="fade-left"] {
+    transform: translate3d(36px, 0, 0);
+}
+
+/* Fade-Right (slides in from left to right) */
+html.js-reveal-ready [data-reveal="fade-right"] {
+    transform: translate3d(-36px, 0, 0);
+}
+
+/* Scale-Up (subtle zoom + slide up) */
+html.js-reveal-ready [data-reveal="scale-up"] {
+    transform: scale(0.95) translate3d(0, 24px, 0);
+}
+
+/* Active / Revealed state */
+html.js-reveal-ready [data-reveal].is-revealed,
+html.js-reveal-ready [data-reveal].is-reveal,
+html.js-reveal-ready .is-revealed,
+html.js-reveal-ready .is-reveal,
+[data-reveal].is-revealed,
+.is-revealed {
+    opacity: 1;
+    transform: translate3d(0, 0, 0) scale(1);
+    filter: none;
+}
+
+/* Hero & Card specific micro-reveal transitions */
+html.js-reveal-ready .architecture-window.is-revealed,
+html.js-reveal-ready .profile-terminal-window.is-revealed {
+    box-shadow: 0 24px 60px rgba(0, 0, 0, 0.45), 0 0 40px color-mix(in srgb, var(--color-primary) 12%, transparent);
+}
+
+html.js-reveal-ready .architecture-window.is-revealed .architecture-bars span:nth-child(1) {
+    transition: width 0.7s cubic-bezier(0.16, 1, 0.3, 1) 0.3s;
+}
+
+html.js-reveal-ready .architecture-window.is-revealed .architecture-bars span:nth-child(2) {
+    transition: width 0.7s cubic-bezier(0.16, 1, 0.3, 1) 0.45s;
+}
+
+html.js-reveal-ready .architecture-window.is-revealed .architecture-bars span:nth-child(3) {
+    transition: width 0.7s cubic-bezier(0.16, 1, 0.3, 1) 0.6s;
+}
+
+/* Smooth transition restoration for interactive cards once revealed */
+html.js-reveal-ready .service-detail-card.is-revealed,
+html.js-reveal-ready .authority-metric-card.is-revealed,
+html.js-reveal-ready .about-skill-card.is-revealed,
+html.js-reveal-ready .about-metric-card.is-revealed,
+html.js-reveal-ready .about-philosophy-card.is-revealed,
+html.js-reveal-ready .timeline-content-card.is-revealed {
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s ease, background 0.3s ease, border-color 0.3s ease, opacity 0.85s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Reduced Motion Accessibility */
+@media (prefers-reduced-motion: reduce) {
+
+    html.js-reveal-ready [data-reveal],
+    .services-hero-block *,
+    .services-hero-visual,
+    .architecture-window,
+    .about-hero-block *,
+    .about-hero-visual,
+    .profile-terminal-window,
+    .home-hero-block *,
+    .home-hero-visual,
+    .home-deck-card,
+    .home-perf-window {
+        opacity: 1 !important;
+        transform: none !important;
+        filter: none !important;
+        transition: none !important;
+        animation: none !important;
     }
 }
 
